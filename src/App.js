@@ -3,6 +3,8 @@ import React, { Component }from 'react';
 import './App.scss';
 import './variables.scss'
 
+import WelcomeForm from './WelcomeForm/WelcomeForm'
+
 class App extends Component {
   constructor() {
     super()
@@ -11,8 +13,8 @@ class App extends Component {
 
   render() {
     return (
-      <main>
-        hi
+      <main className="app">
+        <WelcomeForm/>
       </main>
     )
   }
