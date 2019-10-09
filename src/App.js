@@ -3,6 +3,7 @@ import React, { Component }from 'react';
 import './App.scss';
 import './variables.scss'
 import { getPeople } from './apiCalls/apiCalls'
+import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
 
@@ -27,6 +28,7 @@ class App extends Component {
     return (
       <main className="app">
         <WelcomeForm/>
+        <CardContainer data={this.state.people}/>
       </main>
     )
   }
