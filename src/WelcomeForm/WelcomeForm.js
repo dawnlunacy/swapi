@@ -4,6 +4,11 @@ import './WelcomeForm.scss';
 class WelcomeForm extends Component {
     constructor() {
         super()
+        this.state = {
+            name: '',
+            quote: '',
+            level: []
+        }
     }
     render() {
         return(
@@ -20,8 +25,8 @@ class WelcomeForm extends Component {
                         <option>Knight</option>
                         <option>Master</option>
                     </select>
+                    <button>Submit I Will</button>
                 </form>
-                    <button>submit</button>
             </div>
         )
     }
