@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      // people: 
+      people: []
     }
   }
   componentDidMount(){
@@ -18,11 +18,12 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         const {people} = data;
-        getPeople(people).then(people => console.log('people in app', people))
+        getPeople(people).then(people => this.setState({people:people}))
       })
   }
 
   render() {
+    console.log('STATE', this.state.people)
     return (
       <main className="app">
         <WelcomeForm/>
