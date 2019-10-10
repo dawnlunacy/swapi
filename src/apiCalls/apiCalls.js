@@ -24,7 +24,6 @@ const getHomeworld = homeworldUrl => {
 }
 
 export const getMovies = filmsUrl => {
-    console.log("filmsUrl", filmsUrl)
     return fetch(filmsUrl)
         .then(response => response.json())
         .then(films => films.results.map(film => {

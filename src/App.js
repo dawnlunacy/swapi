@@ -22,10 +22,8 @@ class App extends Component {
         const {people, films} = data;
         getPeople(people).then(people => this.setState({people:people}))
         console.log("Data:", data)
-        console.log("films", films)
         getMovies(films).then(movies => this.setState({movies:movies}))
       })
-      // .then(console.log(this.state))
   }
 
   render() {
