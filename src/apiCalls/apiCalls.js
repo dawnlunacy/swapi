@@ -22,3 +22,13 @@ const getHomeworld = homeworldUrl => {
             return ({ name, population })
         })
 }
+
+export const getMovies = filmsUrl => {
+    console.log("filmsUrl", filmsUrl)
+    return fetch(filmsUrl)
+        .then(response => response.json())
+        .then(films => films.results.map(film => {
+            const { title, episode_id, opening_crawl, release_date, characters } = film;
+            return ({ title, episode_id, opening_crawl, release_date, characters })
+        }))
+}
