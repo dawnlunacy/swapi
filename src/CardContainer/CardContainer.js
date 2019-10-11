@@ -3,9 +3,9 @@ import './CardContainer.scss'
 import Card from '../Card/Card'
 
 const CardContainer = ({data, findCharacters}) => {
-    console.log("Moose", findCharacters)
+    // console.log("Moose", findCharacters)
     const infoCard = data.map(card => {
-        console.log("card", card)
+        // console.log("card", card)
         return(<Card
         key={card.episode_id}
         data={card}

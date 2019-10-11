@@ -33,9 +33,11 @@ getMovieCharacters(characterUrls) {
   // console.log("INTAKE",characterUrls)
   const firstTenCastMembers = characterUrls.splice(0, 10)
   console.log("10?", firstTenCastMembers)
+  const firstTenCastInfo = firstTenCastMembers.map(url => getCharacter(url));
+  // this.setState({currentCharacters: firstTenCastInfo})
+  console.log("CastInfo", Promise.all(firstTenCastInfo).then(resp => console.log("AHH", resp)))
+  // console.log("CastInfo", Promise.all(firstTenCastInfo))
 
-  const firstTenCastInfo = firstTenCastMembers.map(url => getCharacter(url))
-  console.log("CastInfo", firstTenCastInfo)
 
 
   

@@ -24,30 +24,39 @@
 // }
 
 export const getCharacter = characterUrl => {
+    const array = []
     return fetch(characterUrl)
     .then(response => response.json())
     .then(character => {
         console.log("CHARACTER", character )
         // const characterData = character.results.map(person => { //"NEXT" SHOWS MORE CHARACTERS, BUT IT'S OUTSIDE OF RESULTS ON THE SAME LEVEL
-        //     const { name, films, species, homeworld} = person
+            const { name, films, species, homeworld} = character;
 
-        //     const homeWorldInfo = getHomeworld(homeworld).then(world => world)
+            const homeWorldInfo = getHomeworld(homeworld).then(world => world)
 
         //     // return homeWorld
-        //     const speciesDetail =  getSpecies(species).then(info => info)
+            const speciesDetail =  getSpecies(species).then(info => info)
 
-        //     const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
-        //         name, 
-        //         films, 
-        //         species: data[0].name, 
-        //         homeWorld: data[1].name,
-        //         homeWorldPopulation: data[1].population
-        //     }))
-        //     return characterData
-        // })
-        // return Promise.all(peopleData)
-    })
-}
+            const characterData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
+                name, 
+                films, 
+                species: data[0].name, 
+                homeWorld: data[1].name,
+                homeWorldPopulation: data[1].population
+            }))
+            array.push(characterData)
+
+            // return characterData
+        return Promise.all(array)
+
+        })
+        .then(hmm => {
+            console.log("array", array.length)
+            return hmm
+        })
+
+        // .then(characterInfo => characterInfo).then(maybe => console.log("?", maybe))
+    }
 
 const getHomeworld = homeworldUrl => {
     return fetch(homeworldUrl)
