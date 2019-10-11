@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import './variables.scss'
-import { getPeople } from './apiCalls/apiCalls'
+import { getPeople, getSpecies } from './apiCalls/apiCalls'
 import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
@@ -20,8 +20,13 @@ class App extends Component {
       .then(data => {
         const {people} = data;
         getPeople(people).then(people => this.setState({people:people}))
+      // .then(this.state.people.map(person => {
+      //   getSpecies(person.species).then(this.setState({}))))
       })
-  }
+
+}
+
+  
 
   render() {
     console.log('STATE', this.state.people)
