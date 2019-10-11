@@ -36,6 +36,7 @@ getMovieCharacters(characterUrls) {
   const firstTenCastInfo = firstTenCastMembers.map(url => getCharacter(url));
   // this.setState({currentCharacters: firstTenCastInfo})
   console.log("CastInfo", Promise.all(firstTenCastInfo).then(resp => console.log("AHH", resp)))
+  // Promise.all(firstTenCastInfo).then(characterData => this.setState({currentCharacters: characterData}))
   // console.log("CastInfo", Promise.all(firstTenCastInfo))
 
 
