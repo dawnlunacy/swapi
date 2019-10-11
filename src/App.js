@@ -29,7 +29,9 @@ class App extends Component {
 }
 
 getMovieCharacters(characterUrls) {
-  console.log(characterUrls)
+  console.log("CLICK CKLICKDSK")
+  console.log("INTAKE",characterUrls)
+  
   
 }
 

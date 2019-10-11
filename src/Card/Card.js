@@ -19,16 +19,19 @@
 // export default Card;
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Card.scss'
 
-const Card = (cardInfo) => {
-    console.log("CardProp",cardInfo)
+const Card = ({ data, findCharacters}) => {
+    console.log("CardProp",data)
+    console.log("findCharacters", findCharacters)
+
     return(
         <div className="card">
-            <h1> {cardInfo.title} </h1>
-            <h2>{cardInfo.episode_id}</h2>
-            <h2>{cardInfo.release_date}</h2>
-            <button> </button>
+            <h2> {data.title} </h2>
+            <h3>{data.episode_id}</h3>
+            <h3>{data.release_date}</h3>
+            <button onClick={event => findCharacters(data.characters)}> View Characers </button>
         </div>
     )
 }

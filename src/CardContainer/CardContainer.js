@@ -9,6 +9,7 @@ const CardContainer = ({data, findCharacters}) => {
         return(<Card
         key={card.episode_id}
         data={card}
+        findCharacters={findCharacters}
         // name={card.title}
         // homeworld={card.homeworld}
         />)
