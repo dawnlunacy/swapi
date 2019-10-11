@@ -13,8 +13,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      people: [],
-      movies:[]
+      movies:[],
+      currentCharacters: [],
     }
   }
   componentDidMount() {
@@ -22,11 +22,15 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         const {people, films} = data;
-        getPeople(people).then(people => this.setState({people:people}))
-        console.log("Data:", data)
+        // getPeople(people).then(people => this.setState({currentCharacters:people}))
+        // console.log("Data:", data)
         getMovies(films).then(movies => this.setState({movies:movies}))
       })
+}
 
+getMovieCharacters(characterUrls) {
+  console.log(characterUrls)
+  
 }
 
   render() {
@@ -34,7 +38,7 @@ class App extends Component {
     return (
       <main className="app">
         <WelcomeForm/>
-        <CardContainer data={this.state.people}/>
+        <CardContainer data={this.state.movies} findCharacters={this.getMovieCharacters}/>
       </main>
     )
   }
