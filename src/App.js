@@ -2,7 +2,9 @@ import React, { Component }from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import './variables.scss'
-import { getPeople, getSpecies } from './apiCalls/apiCalls'
+
+import { getPeople, getMovies } from './apiCalls/apiCalls'
+
 import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
@@ -11,23 +13,24 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      people: []
+      people: [],
+      movies:[]
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     fetch('https://swapi.co/api/')
       .then(response => response.json())
       .then(data => {
-        const {people} = data;
+        const {people, films} = data;
         getPeople(people).then(people => this.setState({people:people}))
+        console.log("Data:", data)
+        getMovies(films).then(movies => this.setState({movies:movies}))
       })
 
 }
 
-  
-
   render() {
-    console.log('STATE', this.state.people)
+    console.log('STATE', this.state.movies)
     return (
       <main className="app">
         <WelcomeForm/>

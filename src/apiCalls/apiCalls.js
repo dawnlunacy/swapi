@@ -32,6 +32,7 @@ const getHomeworld = homeworldUrl => {
         })
 }
 
+
 export const getSpecies = speciesUrl => {
     return fetch(speciesUrl)
             .then(response => response.json())
@@ -39,4 +40,12 @@ export const getSpecies = speciesUrl => {
                 const { name, language} = species
                 return ({name, language})
             })
+}
+export const getMovies = filmsUrl => {
+    return fetch(filmsUrl)
+        .then(response => response.json())
+        .then(films => films.results.map(film => {
+            const { title, episode_id, opening_crawl, release_date, characters } = film;
+            return ({ title, episode_id, opening_crawl, release_date, characters })
+        }))
 }
