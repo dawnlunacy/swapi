@@ -19,11 +19,8 @@ export const getPeople = peopleUrl => {
             }))
             return personData
         })
-      
-
         return Promise.all(peopleData)
     })
-    
 }
 
 const getHomeworld = homeworldUrl => {

@@ -20,8 +20,6 @@ class App extends Component {
       .then(data => {
         const {people} = data;
         getPeople(people).then(people => this.setState({people:people}))
-      // .then(this.state.people.map(person => {
-      //   getSpecies(person.species).then(this.setState({}))))
       })
 
 }
