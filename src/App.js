@@ -3,7 +3,7 @@ import React, { Component }from 'react';
 import './App.scss';
 import './variables.scss'
 
-import { getPeople, getMovies } from './apiCalls/apiCalls'
+import { getPeople, getMovies, getCharacter } from './apiCalls/apiCalls'
 
 import CardContainer from './CardContainer/CardContainer'
 
@@ -30,8 +30,14 @@ class App extends Component {
 
 getMovieCharacters(characterUrls) {
   console.log("CLICK CKLICKDSK")
-  console.log("INTAKE",characterUrls)
-  
+  // console.log("INTAKE",characterUrls)
+  const firstTenCastMembers = characterUrls.splice(0, 10)
+  console.log("10?", firstTenCastMembers)
+
+  const firstTenCastInfo = firstTenCastMembers.map(url => getCharacter(url))
+  console.log("CastInfo", firstTenCastInfo)
+
+
   
 }
 

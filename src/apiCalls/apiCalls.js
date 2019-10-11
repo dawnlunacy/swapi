@@ -1,25 +1,51 @@
-export const getPeople = peopleUrl => {
-    return fetch(peopleUrl)
+// export const getPeople = peopleUrl => {
+//     return fetch(peopleUrl)
+//     .then(response => response.json())
+//     .then(people => {
+//         const peopleData = people.results.map(person => { //"NEXT" SHOWS MORE CHARACTERS, BUT IT'S OUTSIDE OF RESULTS ON THE SAME LEVEL
+//             const { name, films, species, homeworld} = person
+
+//             const homeWorldInfo = getHomeworld(homeworld).then(world => world)
+
+//             // return homeWorld
+//             const speciesDetail =  getSpecies(species).then(info => info)
+
+//             const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
+//                 name, 
+//                 films, 
+//                 species: data[0].name, 
+//                 homeWorld: data[1].name,
+//                 homeWorldPopulation: data[1].population
+//             }))
+//             return personData
+//         })
+//         return Promise.all(peopleData)
+//     })
+// }
+
+export const getCharacter = characterUrl => {
+    return fetch(characterUrl)
     .then(response => response.json())
-    .then(people => {
-        const peopleData = people.results.map(person => { //"NEXT" SHOWS MORE CHARACTERS, BUT IT'S OUTSIDE OF RESULTS ON THE SAME LEVEL
-            const { name, films, species, homeworld} = person
+    .then(character => {
+        console.log("CHARACTER", character )
+        // const characterData = character.results.map(person => { //"NEXT" SHOWS MORE CHARACTERS, BUT IT'S OUTSIDE OF RESULTS ON THE SAME LEVEL
+        //     const { name, films, species, homeworld} = person
 
-            const homeWorldInfo = getHomeworld(homeworld).then(world => world)
+        //     const homeWorldInfo = getHomeworld(homeworld).then(world => world)
 
-            // return homeWorld
-            const speciesDetail =  getSpecies(species).then(info => info)
+        //     // return homeWorld
+        //     const speciesDetail =  getSpecies(species).then(info => info)
 
-            const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
-                name, 
-                films, 
-                species: data[0].name, 
-                homeWorld: data[1].name,
-                homeWorldPopulation: data[1].population
-            }))
-            return personData
-        })
-        return Promise.all(peopleData)
+        //     const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
+        //         name, 
+        //         films, 
+        //         species: data[0].name, 
+        //         homeWorld: data[1].name,
+        //         homeWorldPopulation: data[1].population
+        //     }))
+        //     return characterData
+        // })
+        // return Promise.all(peopleData)
     })
 }
 
