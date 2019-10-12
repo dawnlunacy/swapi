@@ -40,21 +40,21 @@ class App extends Component {
 //   // console.log("CastInfo", Promise.all(firstTenCastInfo))
 // }
 
-getMovieCharacters(characterUrls) {
+getMovieCharacters = (characterUrls) => {
   console.log("CLICK CKLICKDSK")
   // const charactersInfo = getCharacters(characterUrls)
-  const charactersInfo = getCharacters(characterUrls).then(resp => {
-    console.log("Character Resp:", resp);
-    return resp
-  })
+  const charactersInfo = getCharacters(characterUrls)
+  .then(characters => this.setState({currentCharacters: characters}))
+  
+  // return charactersInfo
 
   // const charactersInfo = getCharacters(characterUrls)
-  console.log("CHARACTERINFO", charactersInfo)
+  // console.log("CHARACTERINFO", charactersInfo)
 
 }
 
   render() {
-    console.log('STATE', this.state.movies)
+    console.log('STATE', this.state)
     return (
       <main className="app">
         <WelcomeForm/>
