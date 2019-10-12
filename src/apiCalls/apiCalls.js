@@ -9,11 +9,11 @@ export const getCharacters = characterUrls => {
     
                 const speciesDetail =  getSpecies(species).then(info => info)
 
-                const characterFilmInfo =  getFilms(films).then(info => {
-                    return info})
-                const personData = Promise.all([speciesDetail, homeWorldInfo, characterFilmInfo]).then(data => ({ 
+                const characterFilmInfo =  getFilms(films).then(info => info)
+                const personData = Promise.all([speciesDetail, homeWorldInfo, characterFilmInfo])
+                .then(data => ({ 
                     name, 
-                    films: characterFilmInfo,
+                    films: data[2],
                     species: data[0].name, 
                     homeWorld: data[1].name,
                     homeWorldPopulation: data[1].population
@@ -55,16 +55,15 @@ export const getMovies = filmsUrl => {
         }))
 }
 
-export const getFilms = filmsUrl => {
-    console.log("length", filmsUrl.length)
-    const filmInfo = filmsUrl.map(url => {
+export const getFilms = filmsUrls => {
+    // console.log("length", filmsUrls.length)
+    const filmInfo = filmsUrls.map(url => {
         return fetch(url)
         .then(response => response.json())
         .then(film => {
             const { title } = film;
             return ({ title })
         })
-        .then(resp => resp)
     })
     return Promise.all(filmInfo)
 }
