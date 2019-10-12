@@ -3,7 +3,7 @@ import React, { Component }from 'react';
 import './App.scss';
 import './variables.scss'
 
-import { getPeople, getMovies, getCharacters } from './apiCalls/apiCalls'
+import { getMovies, getCharacters } from './apiCalls/apiCalls'
 
 import CardContainer from './CardContainer/CardContainer'
 
@@ -21,35 +21,20 @@ class App extends Component {
     fetch('https://swapi.co/api/')
       .then(response => response.json())
       .then(data => {
-        const {people, films} = data;
-        // getPeople(people).then(people => this.setState({currentCharacters:people}))
-        // console.log("Data:", data)
+        const { films } = data;
         getMovies(films).then(movies => this.setState({movies:movies}))
       })
 }
 
-// getMovieCharacters(characterUrls) {
-//   console.log("CLICK CKLICKDSK")
-//   // console.log("INTAKE",characterUrls)
-//   const firstTenCastMembers = characterUrls.splice(0, 10)
-//   console.log("10?", firstTenCastMembers)
-//   const firstTenCastInfo = firstTenCastMembers.map(url => getCharacter(url));
-//   // this.setState({currentCharacters: firstTenCastInfo})
-//   console.log("CastInfo", Promise.all(firstTenCastInfo).then(resp => console.log("AHH", resp)))
-//   // Promise.all(firstTenCastInfo).then(characterData => this.setState({currentCharacters: characterData}))
-//   // console.log("CastInfo", Promise.all(firstTenCastInfo))
-// }
+getMovieCharacters = (characterUrls) => {
+  const charactersInfo = getCharacters(characterUrls)
+  .then(characters => this.setState({currentCharacters: characters}))
 
-getMovieCharacters(characterUrls) {
-  console.log("CLICK CKLICKDSK")
-  const charactersInfo = getCharacters(characterUrls).then(resp => console.log("Character Resp:", resp))
-  // const charactersInfo = getCharacters(characterUrls)
-  // console.log("CHARACTERINFO", charactersInfo)
-
+  return charactersInfo
 }
 
   render() {
-    console.log('STATE', this.state.movies)
+    console.log('STATE', this.state)
     return (
       <main className="app">
         <WelcomeForm/>
