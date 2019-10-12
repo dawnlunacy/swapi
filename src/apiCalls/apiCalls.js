@@ -23,10 +23,47 @@
 //     })
 // }
 
+// export const getCharacters = characterUrls => {
+//     const charactersInfo = [];
+//      const maybe = characterUrls.map(url => {
+//         fetch(url)
+//         .then(response => response.json())
+//         .then(person => {
+//                 const { name, films, species, homeworld } = person
+    
+//                 const homeWorldInfo = getHomeworld(homeworld).then(world => world)
+    
+//                 // return homeWorld
+//                 const speciesDetail =  getSpecies(species).then(info => info)
+    
+//                 const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
+//                     name, 
+//                     films, 
+//                     species: data[0].name, 
+//                     homeWorld: data[1].name,
+//                     homeWorldPopulation: data[1].population
+//                 }))
+//                 // charactersInfo.push(personData)
+//                 return personData
+//         }).then(response => {
+//             console.log("responding:", response);
+//             charactersInfo.push(response);
+//             console.log("infoAfter", charactersInfo)
+//             // console.log("MaybeAfter", maybe)
+//             return response
+
+//         })
+//     })
+//         // .then(resp => console.log("inside get char:", resp))
+//         // console.log("1", charactersInfo)
+//     return Promise.all(maybe)
+
+// }
+
 export const getCharacters = characterUrls => {
-    const charactersInfo = [];
-     const maybe = characterUrls.map(url => {
-        fetch(url)
+    // const charactersInfo = [];
+      const charactersInfo = characterUrls.map(url => {
+        return fetch(url)
         .then(response => response.json())
         .then(person => {
                 const { name, films, species, homeworld } = person
@@ -47,16 +84,18 @@ export const getCharacters = characterUrls => {
                 return personData
         }).then(response => {
             console.log("responding:", response);
-            charactersInfo.push(response);
+            // charactersInfo.push(response);
             console.log("infoAfter", charactersInfo)
             // console.log("MaybeAfter", maybe)
             return response
-
+            // return Promise.all(charactersInfo)
         })
+
     })
+    return Promise.all(charactersInfo)
         // .then(resp => console.log("inside get char:", resp))
         // console.log("1", charactersInfo)
-    return Promise.all(maybe)
+    // return Promise.all(charactersInfo)
 
 }
 

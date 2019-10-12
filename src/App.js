@@ -42,9 +42,14 @@ class App extends Component {
 
 getMovieCharacters(characterUrls) {
   console.log("CLICK CKLICKDSK")
-  const charactersInfo = getCharacters(characterUrls).then(resp => console.log("Character Resp:", resp))
   // const charactersInfo = getCharacters(characterUrls)
-  // console.log("CHARACTERINFO", charactersInfo)
+  const charactersInfo = getCharacters(characterUrls).then(resp => {
+    console.log("Character Resp:", resp);
+    return resp
+  })
+
+  // const charactersInfo = getCharacters(characterUrls)
+  console.log("CHARACTERINFO", charactersInfo)
 
 }
 
