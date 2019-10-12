@@ -8,16 +8,19 @@ export const getCharacters = characterUrls => {
                 const homeWorldInfo = getHomeworld(homeworld).then(world => world)
     
                 const speciesDetail =  getSpecies(species).then(info => info)
-    
-                const personData = Promise.all([speciesDetail, homeWorldInfo]).then(data => ({ 
+
+                const characterFilmInfo =  getFilms(films).then(info => info)
+                const personData = Promise.all([speciesDetail, homeWorldInfo, characterFilmInfo])
+                .then(data => ({ 
                     name, 
-                    films, 
+                    films: data[2],
                     species: data[0].name, 
                     homeWorld: data[1].name,
                     homeWorldPopulation: data[1].population
                 }))
                 return personData
-        }).then(response => {
+        })
+        .then(response => {
             return response
         })
 
@@ -50,4 +53,17 @@ export const getMovies = filmsUrl => {
             const { title, episode_id, opening_crawl, release_date, characters } = film;
             return ({ title, episode_id, opening_crawl, release_date, characters })
         }))
+}
+
+export const getFilms = filmsUrls => {
+    // console.log("length", filmsUrls.length)
+    const filmInfo = filmsUrls.map(url => {
+        return fetch(url)
+        .then(response => response.json())
+        .then(film => {
+            const { title } = film;
+            return ({ title })
+        })
+    })
+    return Promise.all(filmInfo)
 }
