@@ -38,13 +38,29 @@ class WelcomeForm extends Component {
         this.setState({[event.target.name]: event.target.value})
         console.log("Statey",this.state)
     }
+
+    handleClick = (event, errors) => {
+        console.log("CLICK:", event)
+        console.log("errorCLICk:", errors)
+        event.preventDefault();
+        const { name, quote, level } = errors;
+        console.log("nameClick:", name)
+        console.log("quoteClick:", quote)
+        console.log("levelClick:", level)
+
+        if ( name === false  && quote === false && level === false ) {
+            console.log("WIIIINNNNER")
+            return "WINNER"
+        }
+
+    }
     render() {
         const errors = this.validate(this.state)
         console.log("errors", errors)
         return (
             <div className="welcome-form-container">
-                <h1>Welcome Jedi</h1>
                 <form>
+                    <h1>Welcome Jedi</h1>
                     <label>Name:</label>
                     <input
                     type="text"
@@ -66,7 +82,7 @@ class WelcomeForm extends Component {
                     {errors && <span className="error"> { errors.quote } </span>}
 
 
-                    <label>Select Rank</label>
+                    <label>Select Rank:</label>
                     <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
                         <option value="select">Select a Rank</option>
                         <option value="Padawan">Padawan</option>
@@ -74,8 +90,7 @@ class WelcomeForm extends Component {
                         <option value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-
-                    <button>Submit I Shall</button>
+                    <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button>
                 </form>
             </div>
         )
