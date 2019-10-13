@@ -8,6 +8,8 @@ import { getMovies, getCharacters } from './apiCalls/apiCalls'
 import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+
 
 class App extends Component {
   constructor() {
@@ -36,10 +38,18 @@ getMovieCharacters = (characterUrls) => {
   render() {
     console.log('STATE', this.state)
     return (
-      <main className="app">
-        <WelcomeForm/>
-        <CardContainer data={this.state.movies} findCharacters={this.getMovieCharacters}/>
-      </main>
+      <Router>
+        <main className="app">
+          <nav>
+
+          </nav>
+          <Switch>
+          <Route exact path='/' render={(props) => <WelcomeForm {...props} getMovieCharacters={this.getMovieCharacters}/>} />
+          </Switch>
+        {/* <WelcomeForm/>
+        <CardContainer data={this.state.movies} findCharacters={this.getMovieCharacters}/> */}
+        </main>
+      </Router>
     )
   }
 }
