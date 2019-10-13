@@ -12,6 +12,7 @@ class WelcomeForm extends Component {
     }
 
     validate = ({ name, quote, level }) => {
+        console.log("name", name)
         return {
           name:
             !name || name.trim().length === 0
@@ -27,6 +28,11 @@ class WelcomeForm extends Component {
               : false
         };
     };
+
+    handleChange = event => {
+        this.setState({[event.target.name]: event.target.value})
+        console.log("Statey",this.state)
+    }
     render() {
         const errors = this.validate(this.state)
         console.log("errors", errors)
@@ -37,18 +43,22 @@ class WelcomeForm extends Component {
                     <label>Name:</label>
                     <input
                     type="text"
-                    placholder="Enter Name"
+                    placeholder="Enter Name"
                     name="name"
                     value={this.state.name}
+                    onChange= { this.handleChange }
                     />
-
+                    { errors.name }
                     <label>Favorite Quote:</label>
                     <input
                      type="text"
-                     placholder="Enter Quote"
-                     name="name"
+                     placeholder="Enter Quote"
+                     name="quote"
                      value={this.state.quote}
+                     onChange= { this.handleChange }
                      />
+                    { errors.quote }
+
                     <label>Select Rank</label>
                     <select>
                         <option>Padawan</option>
