@@ -1,41 +1,47 @@
+
 h1 {
+    color: #FFE300;
+    display: block;
     text-align:center;
-    position: relative;
-    bottom: 42px;
 }
 
 .welcome-form-container {
+    align-items: center;
     background-color: cornsilk;
-    height: 700px;
-    width: 800px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    background-image: url('../images/hyperspace-effect.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
     margin-top: 50px;
+    width: 100%;
 }
 
 form {
-    // display: block;
-    background-color: plum;
-    width: 600px;
-    height:500px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 5px solid #FFE300;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    margin-left: 4.5em;
+    height:700px;
     padding: 30px;
+    width: 600px;
 }
 
 input, label {
+    color: white;
     display: block;
+    text-align: center;
+
 }
 
 input {
-    font-size: 2.5em;
+    border: 2px solid #FFE300;
+    color: black;
+    font-size: 2.0em;
     padding-left: 6px;
     width: 600px;
-    margin-bottom: 35px;
 }
 
 label {
@@ -44,12 +50,29 @@ label {
 }
 
 select {
-    font-size: 2.5em;
-    width: 600px;
+    border: 2px solid #FFE300;
+    font-size: 2.0em;
     text-align: center;
+    width: 600px;
 }
 
 button {
+    background: black;
+    border-radius: 5px;
+    border: 2px solid #FFE300;
+    color: white;
     font-size: 1.5em;
+    font-weight: bold;
     margin-top: 4em;
+    padding: 10px;
+        &:hover{
+            box-shadow:3px 6px 3px #FFE300, 0 0 2em whitesmoke, 0 0 1em rgb(8, 104, 24);
+        } 
+
+}
+
+.error {
+    color: red;
+    font-size: 1.0em;
+    margin-bottom: 20px;
 }
