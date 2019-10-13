@@ -7,12 +7,14 @@ class WelcomeForm extends Component {
         this.state = {
             name: '',
             quote: '',
-            level: []
+            level: 'select'
         }
     }
 
     validate = ({ name, quote, level }) => {
-        console.log("name", name)
+        console.log("level", level)
+        console.log("Statey",this.state)
+
         return {
           name:
             !name || name.trim().length === 0
@@ -23,13 +25,16 @@ class WelcomeForm extends Component {
               ? "* Quote is required *"
               : false,
           level:
-            !level || level.length === 0
-              ? "* Level is required *"
+            !level || level === 'select'
+              ? "* Rank is required *"
               : false
         };
     };
 
     handleChange = event => {
+        console.log("EVENT-NAME:", event.target.name)
+        console.log("EVENT-OPTION:", event.target.value)
+
         this.setState({[event.target.name]: event.target.value})
         console.log("Statey",this.state)
     }
@@ -62,11 +67,14 @@ class WelcomeForm extends Component {
 
 
                     <label>Select Rank</label>
-                    <select>
-                        <option>Padawan</option>
-                        <option>Knight</option>
-                        <option>Master</option>
+                    <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
+                        <option value="select">Select a Rank</option>
+                        <option value="Padawan">Padawan</option>
+                        <option value="Knight">Knight</option>
+                        <option value="Master">Master</option>
                     </select>
+                    {errors && <span className="error"> { errors.level } </span>}
+
                     <button>Submit I Will</button>
                 </form>
             </div>
