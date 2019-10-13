@@ -38,7 +38,7 @@ input {
     font-size: 2.5em;
     padding-left: 6px;
     width: 600px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
 }
 
 label {
@@ -55,4 +55,9 @@ select {
 button {
     font-size: 1.5em;
     margin-top: 4em;
+}
+
+.error {
+    color: red;
+    margin-bottom: 20px;
 }

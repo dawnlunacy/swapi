@@ -16,15 +16,15 @@ class WelcomeForm extends Component {
         return {
           name:
             !name || name.trim().length === 0
-              ? " Name is required"
+              ? "* Name is required *"
               : false,
           quote:
             !quote || quote.trim().length === 0
-              ? "Quote is required"
+              ? "* Quote is required *"
               : false,
           level:
             !level || level.length === 0
-              ? "Level is required"
+              ? "* Level is required *"
               : false
         };
     };
@@ -48,7 +48,8 @@ class WelcomeForm extends Component {
                     value={this.state.name}
                     onChange= { this.handleChange }
                     />
-                    { errors.name }
+                    {errors && <span className="error"> { errors.name } </span>}
+
                     <label>Favorite Quote:</label>
                     <input
                      type="text"
@@ -57,7 +58,8 @@ class WelcomeForm extends Component {
                      value={this.state.quote}
                      onChange= { this.handleChange }
                      />
-                    { errors.quote }
+                    {errors && <span className="error"> { errors.quote } </span>}
+
 
                     <label>Select Rank</label>
                     <select>
