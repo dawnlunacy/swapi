@@ -1,6 +1,31 @@
 .card {
     border: solid 2px black;
     display: block;
-    background-color: teal;
+    background: #333333;
     text-align: center;
+    width: 350px;
+    height: 400px;
+        header {
+            color: whitesmoke;
+            // color: #FFE300;
+            background: #1C1A1A;
+            height: 25%;
+                h2 {
+                    font-size: 2.3em;
+                    margin: auto;
+                    text-align: center;
+                }
+        }
+}
+.card-main {
+    background: #333333;
+    height:30%;
+        h3 {
+            font-size: 2.3em;
+            margin: auto;
+            text-align: center;
+            border-bottom: 2px solid #FFE300;
+            color: #FFE300;
+            padding: 2%;
+        }
 }
