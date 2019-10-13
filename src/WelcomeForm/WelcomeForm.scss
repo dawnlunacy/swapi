@@ -1,7 +1,8 @@
 
 h1 {
     text-align:center;
-    position: relative;
+    // position: relative;
+    color: #FFE300;
     bottom: 42px;
 }
 
@@ -13,13 +14,22 @@ h1 {
     // justify-content: center;
     // align-items: center;
     margin-top: 50px;
+    background-image: url('../images/hyperspace-effect.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 form {
     // display: block;
     // background-color: black;
-    background-image: url('../images/warp-speed.jpg');
-    border: 2px solid yellow;
+    // background-image: url('../images/warp-speed.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-image: url('../images/hyperspace-effect.gif');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 5px solid #FFE300;
     width: 600px;
     height:500px;
     display: flex;
@@ -32,7 +42,7 @@ form {
 
 input, label {
     display: block;
-    color: black;
+    color: white;
     text-align: center;
 
 }
@@ -41,6 +51,9 @@ input {
     font-size: 2.0em;
     padding-left: 6px;
     width: 600px;
+    border: 2px solid #FFE300;
+    color: black;
+
     // margin-bottom: 10px;
     // height: 100px;
 }
@@ -54,12 +67,26 @@ select {
     font-size: 2.0em;
     width: 600px;
     text-align: center;
+    border: 2px solid #FFE300;
+
     // height: 100px;
 }
 
 button {
     font-size: 1.5em;
     margin-top: 4em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #FFE300;
+    background: black;
+    color: white;
+    font-weight: bold;
+
+
+        &:hover{
+            box-shadow:3px 6px 3px #FFE300, 0 0 2em whitesmoke, 0 0 1em rgb(8, 104, 24);
+        } 
+
 }
 
 .error {

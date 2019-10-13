@@ -75,7 +75,7 @@ class WelcomeForm extends Component {
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
 
-                    <button>Submit I Will</button>
+                    <button>Submit I Shall</button>
                 </form>
             </div>
         )
