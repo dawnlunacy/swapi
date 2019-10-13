@@ -10,15 +10,45 @@ class WelcomeForm extends Component {
             level: []
         }
     }
+
+    validate = ({ name, quote, level }) => {
+        return {
+          name:
+            !name || name.trim().length === 0
+              ? " Name is required"
+              : false,
+          quote:
+            !quote || quote.trim().length === 0
+              ? "Quote is required"
+              : false,
+          level:
+            !level || level.length === 0
+              ? "Level is required"
+              : false
+        };
+    };
     render() {
-        return(
+        const errors = this.validate(this.state)
+        console.log("errors", errors)
+        return (
             <div className="welcome-form-container">
                 <h1>Welcome Jedi</h1>
                 <form>
                     <label>Name:</label>
-                    <input/>
+                    <input
+                    type="text"
+                    placholder="Enter Name"
+                    name="name"
+                    value={this.state.name}
+                    />
+
                     <label>Favorite Quote:</label>
-                    <input/>
+                    <input
+                     type="text"
+                     placholder="Enter Quote"
+                     name="name"
+                     value={this.state.quote}
+                     />
                     <label>Select Rank</label>
                     <select>
                         <option>Padawan</option>
