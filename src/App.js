@@ -12,11 +12,12 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-do
 
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       movies:[],
       currentCharacters: [],
+      userData: this.props.userData
     }
   }
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
 
 getMovieCharacters = (characterUrls) => {
   const charactersInfo = getCharacters(characterUrls)
+  // console.log("I HAVE FETCHED CHARACTERS")
   .then(characters => this.setState({currentCharacters: characters}))
 
   return charactersInfo
@@ -48,10 +50,14 @@ getMovieCharacters = (characterUrls) => {
 
           </nav>
           <Switch>
-          <Route exact path='/' render={(props) => <WelcomeForm {...props} getMovieCharacters={this.getMovieCharacters}/>} />
+          <Route exact path='/' render={() => <WelcomeForm {...this.state} getMovieCharacters={this.getMovieCharacters}/>} />
           </Switch>
-        {/* <WelcomeForm/>
-        <CardContainer data={this.state.movies} findCharacters={this.getMovieCharacters}/> */}
+          <Switch>
+          <Route exact path='/movies' render={() => <CardContainer data={this.state.movies} getMovieCharacters={this.getMovieCharacters}/>} />
+          </Switch>
+          {/* <Switch>
+          <Route exact path='/movies/:movies_id' render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters}/>} />
+          </Switch> */}
         </main>
       </Router>
     )
