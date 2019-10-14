@@ -11,9 +11,12 @@ const Card = ({ data, findCharacters}) => {
         <div className="card">
             <header className="card-header">
             <h2> {data.title} </h2>
+            <h2> {data.name} </h2>
+
             </header>
             <main className="card-main">
             <h3> Episode {data.episode_id}</h3>
+
             <h3>{new Date(data.release_date).toString().split(' ').slice(1,4 ).join(' ')}</h3>
             </main>
             <footer>
@@ -24,7 +27,11 @@ const Card = ({ data, findCharacters}) => {
 
             </footer>
         </div>
+        
     )
 }
 
 export default Card;
+
+
+
