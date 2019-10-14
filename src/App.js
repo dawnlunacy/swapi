@@ -22,7 +22,11 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         const { films } = data;
-        getMovies(films).then(movies => this.setState({movies:movies}))
+        getMovies(films).then(movies => {
+          // console.log("MOVIES", movies.sort((a,b) => a.episode_id - b.episode_id))
+          const moviesByEpisode = movies.sort((a,b) => a.episode_id - b.episode_id)
+          this.setState({movies: [...moviesByEpisode]})
+        })
       })
 }
 

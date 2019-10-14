@@ -6,7 +6,7 @@ const CardContainer = ({data, findCharacters}) => {
     // console.log("Moose", findCharacters)
     const infoCard = data.map(card => {
         // console.log("card", card)
-        return(<Card
+        return(<Card className="movie-card"
         key={card.episode_id}
         data={card}
         findCharacters={findCharacters}
@@ -15,7 +15,7 @@ const CardContainer = ({data, findCharacters}) => {
         />)
     })
     return(
-        <div>
+        <div className="card-container">
             {/* <h1>HIIIII</h1> */}
             {infoCard}
         </div>
