@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Card.scss'
 
 const Card = ({ data, findCharacters}) => {
-    // console.log("CardProp",data)
+    console.log("CardProp",data)
     // console.log("findCharacters", findCharacters)
 
     return(

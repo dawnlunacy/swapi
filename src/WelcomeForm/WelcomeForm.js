@@ -12,7 +12,7 @@ class WelcomeForm extends Component {
         this.state = {
             name: '',
             quote: '',
-            level: 'select',
+            level:'select',
             formReady: false,
             buttonText: 'Submit I Shall Not'
         }
@@ -100,7 +100,7 @@ class WelcomeForm extends Component {
                         <option value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-                    <Link to='/movies' className='nav'> <button disabled={!this.state.name}> Submit I Shall </button> </Link>
+                    <Link to='/movies' className='nav'> <button disabled={!this.state.name && !this.state.quote && this.state.level === 'select'}> Submit I Shall </button> </Link>
                     {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
                 </form>
             </div>
