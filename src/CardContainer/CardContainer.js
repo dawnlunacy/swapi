@@ -22,11 +22,6 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
     })
     return(
         <div className="card-container">
-            <header>
-                <h1>{name}</h1>
-                <p>{quote}</p>
-                <h3>{level}</h3>
-            </header>
             {infoCard}
         </div>
     )
