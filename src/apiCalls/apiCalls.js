@@ -1,5 +1,7 @@
 export const getCharacters = characterUrls => {
-      const charactersInfo = characterUrls.map(url => {
+    const firstTenCharacters = characterUrls.slice(0,10)
+    console.log("YAHBITCH", firstTenCharacters)
+      const charactersInfo = firstTenCharacters.map(url => {
         return fetch(url)
         .then(response => response.json())
         .then(person => {

@@ -2,14 +2,18 @@ import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
 
-const CardContainer = ({data, findCharacters}) => {
-    // console.log("Moose", findCharacters)
+const CardContainer = ({data, getMovieCharacters, currentCharacters}) => {
+    console.log("Moose", getMovieCharacters)
+    console.log("MooseCharcacters", currentCharacters)
+    console.log("MooseData", data)
+    
+
     const infoCard = data.map(card => {
-        // console.log("card", card)
+        console.log("card", card)
         return(<Card className="movie-card"
         key={card.episode_id}
         data={card}
-        findCharacters={findCharacters}
+        findCharacters={getMovieCharacters}
         // name={card.title}
         // homeworld={card.homeworld}
         />)

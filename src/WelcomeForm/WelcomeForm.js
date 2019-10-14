@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './WelcomeForm.scss';
+import { Route, NavLink, Link } from 'react-router-dom';
+import App from '../App'
+
+
 
 class WelcomeForm extends Component {
     constructor() {
@@ -7,13 +12,15 @@ class WelcomeForm extends Component {
         this.state = {
             name: '',
             quote: '',
-            level: 'select'
+            level: 'select',
+            formReady: false,
+            buttonText: 'Submit I Shall Not'
         }
     }
 
     validate = ({ name, quote, level }) => {
-        console.log("level", level)
-        console.log("Statey",this.state)
+        // console.log("level", level)
+        // console.log("Statey",this.state)
 
         return {
           name:
@@ -28,35 +35,38 @@ class WelcomeForm extends Component {
             !level || level === 'select'
               ? "* Rank is required *"
               : false
+        //  formReady:
+            
         };
     };
 
     handleChange = event => {
-        console.log("EVENT-NAME:", event.target.name)
-        console.log("EVENT-OPTION:", event.target.value)
+        // console.log("EVENT-NAME:", event.target.name)
+        // console.log("EVENT-OPTION:", event.target.value)
 
         this.setState({[event.target.name]: event.target.value})
         console.log("Statey",this.state)
     }
 
     handleClick = (event, errors) => {
-        console.log("CLICK:", event)
-        console.log("errorCLICk:", errors)
+        // console.log("CLICK:", event)
+        // console.log("errorCLICk:", errors)
         event.preventDefault();
         const { name, quote, level } = errors;
-        console.log("nameClick:", name)
-        console.log("quoteClick:", quote)
-        console.log("levelClick:", level)
+        // console.log("nameClick:", name)
+        // console.log("quoteClick:", quote)
+        // console.log("levelClick:", level)
 
         if ( name === false  && quote === false && level === false ) {
-            console.log("WIIIINNNNER")
-            return "WINNER"
+            console.log("WIIIINNNNER");
+            return <NavLink to='/movies' className='nav'> Movies </NavLink>
+
         }
 
     }
     render() {
         const errors = this.validate(this.state)
-        console.log("errors", errors)
+        // console.log("errors", errors)
         return (
             <div className="welcome-form-container">
                 <form>
@@ -90,11 +100,18 @@ class WelcomeForm extends Component {
                         <option value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-                    <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button>
+                    <Link to='/movies' className='nav'> <button disabled={!this.state.name}> Submit I Shall </button> </Link>
+                    {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
                 </form>
             </div>
+
         )
     }
 }
 
 export default WelcomeForm;
+
+WelcomeForm.propTypes = {
+    movies: PropTypes.array.isRequired,
+    currentCharacter: PropTypes.array.isRequired
+  }
