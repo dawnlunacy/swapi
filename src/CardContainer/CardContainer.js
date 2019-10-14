@@ -4,8 +4,12 @@ import Card from '../Card/Card'
 
 const CardContainer = ({data, getMovieCharacters, currentCharacters}) => {
     console.log("Moose", getMovieCharacters)
+    console.log("MooseCharcacters", currentCharacters)
+    console.log("MooseData", data)
+    
+
     const infoCard = data.map(card => {
-        // console.log("card", card)
+        console.log("card", card)
         return(<Card className="movie-card"
         key={card.episode_id}
         data={card}

@@ -11,13 +11,16 @@ import WelcomeForm from './WelcomeForm/WelcomeForm'
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 
 
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       movies:[],
       currentCharacters: [],
-      userData: this.props.userData
+      userData: this.props.userData,
+      isLoading: true,
+
     }
   }
   componentDidMount() {
@@ -28,6 +31,7 @@ class App extends Component {
         getMovies(films).then(movies => {
           // console.log("MOVIES", movies.sort((a,b) => a.episode_id - b.episode_id))
           const moviesByEpisode = movies.sort((a,b) => a.episode_id - b.episode_id)
+         
           this.setState({movies: [...moviesByEpisode]})
         })
       })
@@ -55,9 +59,9 @@ getMovieCharacters = (characterUrls) => {
           <Switch>
           <Route exact path='/movies' render={() => <CardContainer data={this.state.movies} getMovieCharacters={this.getMovieCharacters}/>} />
           </Switch>
-          {/* <Switch>
-          <Route exact path='/movies/:movies_id' render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters}/>} />
-          </Switch> */}
+          <Switch>
+          <Route exact path='/movies/moose' render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters}/>} />
+          </Switch>
         </main>
       </Router>
     )
