@@ -14,7 +14,7 @@ const Card = ({ data, findCharacters}) => {
             </header>
             <main className="card-main">
             <h3> Episode {data.episode_id}</h3>
-            <h3>{data.release_date}</h3>
+            <h3>{new Date(data.release_date).toString().split(' ').slice(1,4 ).join(' ')}</h3>
             </main>
             <footer>
             <button onClick={event => findCharacters(data.characters)}> View Characers </button>
