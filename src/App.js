@@ -20,6 +20,9 @@ class App extends Component {
       currentCharacters: [],
       userData: this.props.userData,
       isLoading: true,
+      name: '',
+      quote: '',
+      level: ''
 
     }
   }
@@ -37,6 +40,15 @@ class App extends Component {
       })
 }
 
+userInfo = (name, quote, level) => {
+  this.setState({ name: name, quote: quote, level: level})
+  // console.log("NAME", name)
+  // console.log("QUOTE", quote)
+  // console.log("LEVEL", level)
+
+}
+
+
 getMovieCharacters = (characterUrls) => {
   const charactersInfo = getCharacters(characterUrls)
   // console.log("I HAVE FETCHED CHARACTERS")
@@ -47,6 +59,7 @@ getMovieCharacters = (characterUrls) => {
 
   render() {
     console.log('STATE', this.state)
+    console.log('user method', this.userInfo)
     return (
       <Router>
         <main className="app">
@@ -54,13 +67,13 @@ getMovieCharacters = (characterUrls) => {
 
           </nav>
           <Switch>
-          <Route exact path='/' render={() => <WelcomeForm {...this.state} getMovieCharacters={this.getMovieCharacters}/>} />
+          <Route exact path='/' render={() => <WelcomeForm {...this.state} getMovieCharacters={this.getMovieCharacters} userInfo={this.userInfo}/>} />
           </Switch>
           <Switch>
-          <Route exact path='/movies' render={() => <CardContainer data={this.state.movies} getMovieCharacters={this.getMovieCharacters}/>} />
+          <Route exact path='/movies' render={() => <CardContainer data={this.state.movies} getMovieCharacters={this.getMovieCharacters} name={this.state.name} quote={this.state.quote} level={this.state.level}/> } />
           </Switch>
           <Switch>
-          <Route exact path='/movies/moose' render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters}/>} />
+          <Route exact path='/movies/moose' render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters} name={this.state.name} quote={this.state.quote} level={this.state.level}/>} />
           </Switch>
         </main>
       </Router>

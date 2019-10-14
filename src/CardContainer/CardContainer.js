@@ -2,10 +2,12 @@ import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
 
-const CardContainer = ({data, getMovieCharacters, currentCharacters}) => {
+const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level}) => {
     console.log("Moose", getMovieCharacters)
     console.log("MooseCharcacters", currentCharacters)
     console.log("MooseData", data)
+
+    console.log('USER INFO', name, quote, level) //undefined for now
     
 
     const infoCard = data.map(card => {
@@ -20,7 +22,11 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters}) => {
     })
     return(
         <div className="card-container">
-            {/* <h1>HIIIII</h1> */}
+            <header>
+                <h1>{name}</h1>
+                <p>{quote}</p>
+                <h3>{level}</h3>
+            </header>
             {infoCard}
         </div>
     )

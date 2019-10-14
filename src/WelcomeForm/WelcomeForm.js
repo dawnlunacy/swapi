@@ -40,6 +40,12 @@ class WelcomeForm extends Component {
         };
     };
 
+    displayUserInfo = () => {
+        const { userInfo } = this.props
+        console.log("PROPS FOR USER", this.props)
+        userInfo(this.state.name, this.state.quote, this.state.level)
+    }
+    
     handleChange = event => {
         // console.log("EVENT-NAME:", event.target.name)
         // console.log("EVENT-OPTION:", event.target.value)
@@ -65,6 +71,7 @@ class WelcomeForm extends Component {
 
     }
     render() {
+        console.log('display', this.displayUserInfo)
         const errors = this.validate(this.state)
         // console.log("errors", errors)
         return (
@@ -94,10 +101,10 @@ class WelcomeForm extends Component {
 
                     <label>Select Rank:</label>
                     <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
-                        <option value="select">Select a Rank</option>
-                        <option value="Padawan">Padawan</option>
-                        <option value="Knight">Knight</option>
-                        <option value="Master">Master</option>
+                        <option  value="select">Select a Rank</option>
+                        <option  value="Padawan">Padawan</option>
+                        <option  value="Knight">Knight</option>
+                        <option  value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
                     <Link to='/movies' className='nav'> <button disabled={!this.state.name}> Submit I Shall </button> </Link>
