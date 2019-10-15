@@ -6,7 +6,6 @@ import { Link, NavLink } from 'react-router-dom'
 const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, movie}) => {
 
     const infoCard = data.map(card => {
-        console.log("card", card)
         return(<Card className="movie-card"
         key={card.episode_id}
         id={card.episode_id}
