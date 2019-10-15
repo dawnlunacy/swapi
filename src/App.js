@@ -50,8 +50,6 @@ getMovieCharacters = (characterUrls) => {
 }
 
   render() {
-    console.log('STATE', this.state)
-    console.log('user method', this.userInfo)
     const { movies, name, quote, level, currentCharacters, isLoading } = this.state 
     return (
       <Router>
