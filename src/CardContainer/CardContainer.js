@@ -28,7 +28,7 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
             <div className="user-info-display"> 
                 <h2>{ name }</h2>
                 <h3>{ quote }</h3>
-                <h3>{ level }</h3>
+                <h4>{ level }</h4>
             </div>
             <button className="sign-out-btn">SIGN OUT</button>
             </div>
