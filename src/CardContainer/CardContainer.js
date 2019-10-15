@@ -1,6 +1,7 @@
 import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
+import { Link } from 'react-router-dom'
 
 const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, selectedMovie}) => {
     console.log("Moose", getMovieCharacters)
@@ -32,7 +33,10 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
                 <h3>{ quote }</h3>
                 <h4>{ level }</h4>
             </div>
+            <Link to='/'>
             <button className="sign-out-btn">SIGN OUT</button>
+            </Link>
+
             </div>
         </header>
         <nav>
