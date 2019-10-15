@@ -1,36 +1,35 @@
 .card-container {
     background: black;
     display: grid;
+    grid-row-gap: 25px;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    grid-row-gap: 25px;
     padding: 30px;
 }
 
 header {
-    display: grid;
     background-color: #1C1A1A;
-    width: 100%;
     color: #FFE300;
+    display: grid;
+    width: 100%;
         h1 {
-            font-size: 4em;
+            font-size: 3.5em;
             margin: 1%;
         }
         h2 {
-            font-size: 3em;
-            margin: 2%;
             border-bottom: 2px solid #FFE300;
+            font-size: 2.5em;
+            margin: 2%;
         }
         h3 {
-            font-size: 2.5em;
+            border-bottom: 2px solid #FFE300;
+            font-size: 2.0em;
+            font-style: italic;
             font-weight: normal;
             margin: 1%;
-            font-style: italic;
-            border-bottom: 2px solid #FFE300;
-
         }
         h4 {
-            font-size: 3em;
+            font-size: 2.2em;
             margin: 2%;
         }
 }
@@ -41,32 +40,30 @@ header {
 }
 
 nav {
-    height: 100px;
-    // display: flex;
-    width: 100%;
     background-color: #111;
+    height: 100px;
     text-align:center;
+    width: 100%;
 
 }
 
 .main-btn {
-    width: 200px;
     display: inline-block;
-    margin: auto;
     margin: 2%;
+    width: 200px;
 
 
 }
 
 .user-info-display {
+    margin: 0% 10% 5% 8%;
     width: 50%;
-    margin: 5% 10% 5% 8%;
 }
 
 .sign-out-btn {
+    border-radius: 40px;
     display: inline-block;
+    height: 50px;
     margin: 20% 8% 5% 55%;
     width: 200px;
-    height: 50px;
-    border-radius: 40px;
 }
