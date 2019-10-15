@@ -54,21 +54,21 @@ class WelcomeForm extends Component {
         console.log("Statey",this.state)
     }
 
-    handleClick = (event, errors) => {
-        // console.log("CLICK:", event)
-        // console.log("errorCLICk:", errors)
-        event.preventDefault();
-        const { name, quote, level } = errors;
-        // console.log("nameClick:", name)
-        // console.log("quoteClick:", quote)
-        // console.log("levelClick:", level)
+    // handleClick = (event, errors) => {
+    //     // console.log("CLICK:", event)
+    //     // console.log("errorCLICk:", errors)
+    //     event.preventDefault();
+    //     const { name, quote, level } = errors;
+    //     // console.log("nameClick:", name)
+    //     // console.log("quoteClick:", quote)
+    //     // console.log("levelClick:", level)
 
-        if ( name === false  && quote === false && level === false ) {
-            return <NavLink to='/movies' className='nav'> Movies </NavLink>
+    //     if ( name === false  && quote === false && level === false ) {
+    //         return <NavLink to='/movies' className='nav'> Movies </NavLink>
 
-        }
+    //     }
 
-    }
+    // }
     render() {
         console.log('display', this.displayUserInfo)
         const errors = this.validate(this.state)
