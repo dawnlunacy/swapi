@@ -20,7 +20,7 @@ const Card = ({ data, findCharacters}) => {
             <footer>
             {/* <button onClick={event => findCharacters(data.characters)}> View Characters </button> */}
             <Link to='/movies/moose' className='btn'>  
-            <button onClick={event => findCharacters(data.characters)}> View Characters </button>            
+            <button onClick={() => findCharacters(data.characters)}> View Characters </button>            
              </Link>
             </footer>
         </div>

@@ -64,7 +64,6 @@ class WelcomeForm extends Component {
         // console.log("levelClick:", level)
 
         if ( name === false  && quote === false && level === false ) {
-            console.log("WIIIINNNNER");
             return <NavLink to='/movies' className='nav'> Movies </NavLink>
 
         }
@@ -120,5 +119,5 @@ export default WelcomeForm;
 
 WelcomeForm.propTypes = {
     movies: PropTypes.array.isRequired,
-    currentCharacter: PropTypes.array.isRequired
+    currentCharacter: PropTypes.array //currently undefined if isRequired is added
   }
