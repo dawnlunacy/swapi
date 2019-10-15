@@ -22,7 +22,8 @@ class App extends Component {
       isLoading: true,
       name: '',
       quote: '',
-      level: ''
+      level: '',
+      currentMovieId: false,
 
     }
   }
@@ -42,21 +43,17 @@ class App extends Component {
 
 userInfo = (name, quote, level) => {
   this.setState({ name: name, quote: quote, level: level})
-  // console.log("NAME", name)
-  // console.log("QUOTE", quote)
-  // console.log("LEVEL", level)
-
 }
-
 
 getMovieCharacters = (characterUrls) => {
   const charactersInfo = getCharacters(characterUrls)
-  // console.log("I HAVE FETCHED CHARACTERS")
   .then(characters => this.setState({currentCharacters: characters}))
-
   return charactersInfo
 }
 
+setCurrentMovie = () => {
+
+}
   render() {
     console.log('STATE', this.state)
     console.log('user method', this.userInfo)
