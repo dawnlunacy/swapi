@@ -47,11 +47,25 @@ class WelcomeForm extends Component {
     }
     
     handleChange = event => {
+        console.log("CHANGE DETECTED", event.target)
         console.log("EVENT-NAME:", event.target.name)
         console.log("EVENT-OPTION:", event.target.value)
-
         this.setState({[event.target.name]: event.target.value})
-        console.log("Statey",this.state)
+        // console.log("Statey",this.state)
+
+        // console.log("name", this.state.name !== '')
+        // console.log("quote", this.state.quote !== '')
+        // console.log("level", this.state.level !== 'select')
+
+        if ( this.state.name !== ''  && this.state.quote !== '' && this.state.level !== 'select' ) {
+            console.log("WIIIINNNNER");
+            this.setState({buttonText:"Submit I Shall"});
+            this.setState({formReady: true}) 
+        console.log("Statey22222",this.state)
+
+            // this.displayUserInfo()
+            // return <NavLink to='/movies' className='nav'> Movies </NavLink>
+        }
     }
 
     handleClick = (event, errors) => {
@@ -61,24 +75,32 @@ class WelcomeForm extends Component {
         const { name, quote, level } = errors;
         // console.log("nameClick:", name)
         // console.log("quoteClick:", quote)
-        // console.log("levelClick:", level)
+        console.log("levelClick:", level)
 
-        if ( name === false  && quote === false && level !== 'select' ) {
-            console.log("WIIIINNNNER");
-            this.setState({buttonText:"Submit I Shall"});
-            this.setState({formReady: true})
-            // return <NavLink to='/movies' className='nav'> Movies </NavLink>
+        // if ( name === false  && quote === false && level !== 'select' ) {
+        //     console.log("WIIIINNNNER");
+        //     this.setState({buttonText:"Submit I Shall"});
+        //     this.setState({formReady: true}) 
+        //     // this.displayUserInfo()
+        //     // return <NavLink to='/movies' className='nav'> Movies </NavLink>
 
-        }
+        // }
+
+        // if (!this.state.formReady) {
+        //     return errors
+        // }
 
     }
     render() {
-        console.log('display', this.displayUserInfo)
+        // console.log('display', this.displayUserInfo)
         const errors = this.validate(this.state)
         console.log("RENDERING", this.state)
-        if(this.state.formReady) {
-            return <Redirect to='/movies' />
-        }
+        console.log("name", this.state.name !== '')
+        console.log("quote", this.state.quote !== '')
+        console.log("level", this.state.level !== 'select')
+        // if(this.state.formReady) {
+        //     return <Redirect to='/movies' />
+        // }
         return (
             <div className="welcome-form-container">
                 <form>
@@ -116,7 +138,7 @@ class WelcomeForm extends Component {
                     {/* <Link to='/movies' className='nav'> <button disabled={!this.state.name && !this.state.quote && !this.state.level}> {this.state.buttonText} </button> </Link> */}
                     {/* <button onClick={(event)=> this.handleClick(event, errors)}>{this.state.buttonText}</button> */}
 
-                    <Link to='/movies' className='nav'> <button onClick={this.displayUserInfo} disabled={!this.state.name}> Submit I Shall </button> </Link>
+                    <Link to='/movies' className='nav'> <button onClick={this.displayUserInfo} disabled={!this.state.formReady}> {this.state.buttonText}</button> </Link>
                     {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
 
                 </form>
