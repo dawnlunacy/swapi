@@ -19,8 +19,6 @@ class WelcomeForm extends Component {
     }
 
     validate = ({ name, quote, level }) => {
-        // console.log("level", level)
-        // console.log("Statey",this.state)
 
         return {
           name:
@@ -42,65 +40,21 @@ class WelcomeForm extends Component {
 
     displayUserInfo = () => {
         const { userInfo } = this.props
-        console.log("PROPS FOR USER", this.props)
         userInfo(this.state.name, this.state.quote, this.state.level)
     }
     
     handleChange = event => {
-        console.log("CHANGE DETECTED", event.target)
-        console.log("EVENT-NAME:", event.target.name)
-        console.log("EVENT-OPTION:", event.target.value)
         this.setState({[event.target.name]: event.target.value})
-        // console.log("Statey",this.state)
-
-        // console.log("name", this.state.name !== '')
-        // console.log("quote", this.state.quote !== '')
-        // console.log("level", this.state.level !== 'select')
 
         if ( this.state.name !== ''  && this.state.quote !== '' && this.state.level !== 'select' ) {
-            console.log("WIIIINNNNER");
             this.setState({buttonText:"Submit I Shall"});
             this.setState({formReady: true}) 
-        console.log("Statey22222",this.state)
-
-            // this.displayUserInfo()
-            // return <NavLink to='/movies' className='nav'> Movies </NavLink>
         }
     }
 
-    handleClick = (event, errors) => {
-        // console.log("CLICK:", event)
-        // console.log("errorCLICk:", errors)
-        event.preventDefault();
-        const { name, quote, level } = errors;
-        // console.log("nameClick:", name)
-        // console.log("quoteClick:", quote)
-        console.log("levelClick:", level)
-
-        // if ( name === false  && quote === false && level !== 'select' ) {
-        //     console.log("WIIIINNNNER");
-        //     this.setState({buttonText:"Submit I Shall"});
-        //     this.setState({formReady: true}) 
-        //     // this.displayUserInfo()
-        //     // return <NavLink to='/movies' className='nav'> Movies </NavLink>
-
-        // }
-
-        // if (!this.state.formReady) {
-        //     return errors
-        // }
-
-    }
     render() {
-        // console.log('display', this.displayUserInfo)
         const errors = this.validate(this.state)
-        console.log("RENDERING", this.state)
-        console.log("name", this.state.name !== '')
-        console.log("quote", this.state.quote !== '')
-        console.log("level", this.state.level !== 'select')
-        // if(this.state.formReady) {
-        //     return <Redirect to='/movies' />
-        // }
+    
         return (
             <div className="welcome-form-container">
                 <form>
@@ -125,7 +79,6 @@ class WelcomeForm extends Component {
                      />
                     {errors && <span className="error"> { errors.quote } </span>}
 
-
                     <label>Select Rank:</label>
                     <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
                         <option  value="select">Select a Rank</option>
@@ -134,16 +87,9 @@ class WelcomeForm extends Component {
                         <option  value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-                    {/* <button> {this.state.buttonText}</button> */}
-                    {/* <Link to='/movies' className='nav'> <button disabled={!this.state.name && !this.state.quote && !this.state.level}> {this.state.buttonText} </button> </Link> */}
-                    {/* <button onClick={(event)=> this.handleClick(event, errors)}>{this.state.buttonText}</button> */}
-
                     <Link to='/movies' className='nav'> <button onClick={this.displayUserInfo} disabled={!this.state.formReady}> {this.state.buttonText}</button> </Link>
-                    {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
-
                 </form>
             </div>
-
         )
     }
 }
