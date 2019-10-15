@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SWAPI
+******
 
-## Available Scripts
+## Set up
+1. clone down repo
+2. run npm install
+3. npm start
+4. open http://localhost:3000
 
-In the project directory, you can run:
+## Objectives
 
-### `npm start`
+- Allowed users to insert their information and login to the app. After, by using a Star Wars api endpoint to retrieve the data, the fetched data was displayed on the screen that was attached to route paths.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Stack
+- SCSS
+- JSX
+- JavaScript
+- React
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## screenshots/gifs
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img width="1440" alt="Screen Shot 2019-10-15 at 4 56 35 PM" src="https://user-images.githubusercontent.com/42981739/66875849-fe17f480-ef6c-11e9-992b-8696d8b32b07.png">
+<img width="1440" alt="Screen Shot 2019-10-15 at 4 57 25 PM" src="https://user-images.githubusercontent.com/42981739/66875872-02441200-ef6d-11e9-8d99-2acc22765e0a.png">
+<img width="1440" alt="Screen Shot 2019-10-15 at 4 57 35 PM" src="https://user-images.githubusercontent.com/42981739/66875888-03753f00-ef6d-11e9-814e-4e6b50be6336.png">
+<img width="1440" alt="Screen Shot 2019-10-15 at 4 57 58 PM" src="https://user-images.githubusercontent.com/42981739/66875893-0a03b680-ef6d-11e9-83a1-fc9d6a1d8c2e.png">
