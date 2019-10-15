@@ -95,7 +95,3 @@ class WelcomeForm extends Component {
 }
 
 export default WelcomeForm;
-
-WelcomeForm.propTypes = {
-    movies: PropTypes.array.isRequired,
-  }

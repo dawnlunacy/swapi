@@ -29,7 +29,6 @@ const Card = ({ data, findCharacters}) => {
             { title && <Link to={`/movies/${episode_id}`} className='btn'>
             <button onClick={event => findCharacters(data.characters)}> View Characters </button>
             </Link>}       
-
             </footer>
         </div>
         

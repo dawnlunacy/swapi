@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeForm should match the snapshot with all the correct data passed through 1`] = `
+<div
+  className="welcome-form-container"
+>
+  <form>
+    <h1>
+      Welcome Jedi
+    </h1>
+    <label>
+      Name:
+    </label>
+    <input
+      name="name"
+      onChange={[Function]}
+      placeholder="Enter Name"
+      type="text"
+      value=""
+    />
+    <span
+      className="error"
+    >
+       
+      * Name is required *
+       
+    </span>
+    <label>
+      Favorite Quote:
+    </label>
+    <input
+      name="quote"
+      onChange={[Function]}
+      placeholder="Enter Quote"
+      type="text"
+      value=""
+    />
+    <span
+      className="error"
+    >
+       
+      * Quote is required *
+       
+    </span>
+    <label>
+      Select Rank:
+    </label>
+    <select
+      name="level"
+      onChange={[Function]}
+      value="select"
+    >
+      <option
+        value="select"
+      >
+        Select a Rank
+      </option>
+      <option
+        value="Padawan"
+      >
+        Padawan
+      </option>
+      <option
+        value="Knight"
+      >
+        Knight
+      </option>
+      <option
+        value="Master"
+      >
+        Master
+      </option>
+    </select>
+    <span
+      className="error"
+    >
+       
+      * Rank is required *
+       
+    </span>
+    <Link
+      className="nav"
+      to="/movies"
+    >
+       
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+         Submit I Shall 
+      </button>
+       
+    </Link>
+  </form>
+</div>
+`;
