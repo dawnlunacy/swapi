@@ -30,13 +30,9 @@ const Card = ({ data, findCharacters}) => {
             </ul>
             </main>
             <footer>
-            {/* <Link to='/movies/moose' className='btn'>   */}
             { title && <Link to={`/movies/${episode_id}`} className='btn'>
             <button onClick={event => findCharacters(data.characters)}> View Characters </button>
             </Link>}       
-            {/* { title && <button onClick={event => this.handleSubmit(event)}> View Characters </button> }             */}
-
-             {/* </Link> */}
             </footer>
         </div>
         
