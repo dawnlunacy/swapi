@@ -8,7 +8,7 @@ import { getMovies, getCharacters } from './apiCalls/apiCalls'
 import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
@@ -33,7 +33,6 @@ class App extends Component {
         const { films } = data;
         getMovies(films).then(movies => {
           const moviesByEpisode = movies.sort((a,b) => a.episode_id - b.episode_id)
-         
           this.setState({movies: [...moviesByEpisode], isLoading: false})
           
         })
@@ -48,14 +47,6 @@ getMovieCharacters = (characterUrls) => {
   this.setState({isLoading: true})
   getCharacters(characterUrls)
   .then(characters => this.setState({currentCharacters: characters, isLoading: false}))
-}
-
-setCurrentMovie = () => {
-
-}
-
-handleSubmit = (event) => {
-  console.log("INSIDE CARD", event.target)
 }
 
   render() {
@@ -89,7 +80,8 @@ handleSubmit = (event) => {
             movie={ selectedMovie } 
             name={ name } 
             quote={ quote } 
-           level={ level }/> )}
+           level={ level }
+           isLoading= { isLoading }/> )}
           }/>
           
           </Switch>

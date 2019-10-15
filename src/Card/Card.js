@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import './Card.scss'
 
 const Card = ({ data, findCharacters}) => {
-    console.log("CardProp",data)
     const { title,episode_id, release_date, name, homeWorld, homeWorldPopulation, species, films } = data;
-    // const film = films.map(film => <li> {film }</li>)
-
-   
 
     return(
         <div className="card">

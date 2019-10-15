@@ -1,6 +1,5 @@
 export const getCharacters = characterUrls => {
     const firstTenCharacters = characterUrls.slice(0,10)
-    console.log("YAHBITCH", firstTenCharacters)
       const charactersInfo = firstTenCharacters.map(url => {
         return fetch(url)
         .then(response => response.json())
@@ -44,7 +43,6 @@ export const getSpecies = speciesUrl => {
             .then(response => response.json())
             .then(species => {
                 const { name, language} = species
-                console.log("SPECIES NAME", name)
                 return ({name, language})
             })
 }
@@ -59,9 +57,7 @@ export const getMovies = filmsUrl => {
 }
 
 export const getFilms = filmsUrls => {
-    // console.log("length", filmsUrls.length)
     const filmInfo = filmsUrls.map(url => {
-    console.log("hmm", url)
 
         return fetch(url)
         .then(response => response.json())

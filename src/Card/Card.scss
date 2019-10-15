@@ -37,3 +37,37 @@ ul {
     text-align: left;
     margin: 20px;
 }
+
+.loading-characters {
+    width: 70%;
+    margin-left: 2.6em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    perspective: 55px;
+    color: #FFE300;
+    font-size: 2.5em;
+    letter-spacing: 5px;
+    line-height: 142%;
+    text-align: justify;
+}
+
+.crawl {
+    position: relative;
+    top: -100px;
+    transform-origin: 50% 100%;
+    animation: crawl 60s linear;
+}
+
+@keyframes crawl {
+    0% {
+        top: 0;
+        transform: rotateX(40deg) translateZ(0);
+    }
+    75% {
+        top: -4000px;
+        transform: rotateX(25deg) translateZ(-4000px);
+    }
+}
+
