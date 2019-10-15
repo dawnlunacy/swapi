@@ -63,16 +63,6 @@ getMovieCharacters = (characterUrls) => {
     return (
       <Router>
         <main className="app">
-          <header>
-          <h1>{this.state.name}</h1>
-                <p>{this.state.quote}</p>
-                <h3>{this.state.level}</h3>
-                <button>SIGN OUT</button>
-          </header>
-          <nav>
-            <button>MOVIES</button>
-            <button>FAVORITES</button>
-          </nav>
           <Switch>
           <Route exact path='/' render={() => <WelcomeForm {...this.state} getMovieCharacters={this.getMovieCharacters} userInfo={this.userInfo}/>} />
           </Switch>

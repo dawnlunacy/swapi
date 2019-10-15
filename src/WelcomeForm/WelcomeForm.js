@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './WelcomeForm.scss';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import App from '../App'
 
 
@@ -12,15 +12,13 @@ class WelcomeForm extends Component {
         this.state = {
             name: '',
             quote: '',
-            level: 'select',
+            level:'select',
             formReady: false,
             buttonText: 'Submit I Shall Not'
         }
     }
 
     validate = ({ name, quote, level }) => {
-        // console.log("level", level)
-        // console.log("Statey",this.state)
 
         return {
           name:
@@ -42,38 +40,21 @@ class WelcomeForm extends Component {
 
     displayUserInfo = () => {
         const { userInfo } = this.props
-        console.log("PROPS FOR USER", this.props)
         userInfo(this.state.name, this.state.quote, this.state.level)
     }
     
     handleChange = event => {
-        // console.log("EVENT-NAME:", event.target.name)
-        // console.log("EVENT-OPTION:", event.target.value)
-
         this.setState({[event.target.name]: event.target.value})
-        console.log("Statey",this.state)
-    }
 
-    handleClick = (event, errors) => {
-        // console.log("CLICK:", event)
-        // console.log("errorCLICk:", errors)
-        event.preventDefault();
-        const { name, quote, level } = errors;
-        // console.log("nameClick:", name)
-        // console.log("quoteClick:", quote)
-        // console.log("levelClick:", level)
-
-        if ( name === false  && quote === false && level === false ) {
-            console.log("WIIIINNNNER");
-            return <NavLink to='/movies' className='nav'> Movies </NavLink>
-
+        if ( this.state.name !== ''  && this.state.quote !== '' && this.state.level !== 'select' ) {
+            this.setState({buttonText:"Submit I Shall"});
+            this.setState({formReady: true}) 
         }
-
     }
+
     render() {
-        console.log('display', this.displayUserInfo)
         const errors = this.validate(this.state)
-        // console.log("errors", errors)
+    
         return (
             <div className="welcome-form-container">
                 <form>
@@ -98,7 +79,6 @@ class WelcomeForm extends Component {
                      />
                     {errors && <span className="error"> { errors.quote } </span>}
 
-
                     <label>Select Rank:</label>
                     <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
                         <option  value="select">Select a Rank</option>
@@ -107,11 +87,9 @@ class WelcomeForm extends Component {
                         <option  value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-                    <Link to='/movies' className='nav'> <button onClick={this.displayUserInfo} disabled={!this.state.name}> Submit I Shall </button> </Link>
-                    {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
+                    <Link to='/movies' className='nav'> <button onClick={this.displayUserInfo} disabled={!this.state.formReady}> {this.state.buttonText}</button> </Link>
                 </form>
             </div>
-
         )
     }
 }
