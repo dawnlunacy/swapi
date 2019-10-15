@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './WelcomeForm.scss';
-import { Route, NavLink, Link, Redirect } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import App from '../App'
 
 
@@ -98,5 +98,4 @@ export default WelcomeForm;
 
 WelcomeForm.propTypes = {
     movies: PropTypes.array.isRequired,
-    currentCharacter: PropTypes.array.isRequired
   }
