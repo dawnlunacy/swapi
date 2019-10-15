@@ -21,9 +21,27 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
         />)
     })
     return(
+        <>
+        <header>
+            <h1> StarWars</h1>
+            <div className="header-display">
+            <div className="user-info-display"> 
+                <h2>{ name }</h2>
+                <h3>{ quote }</h3>
+                <h3>{ level }</h3>
+            </div>
+            <button className="sign-out-btn">SIGN OUT</button>
+            </div>
+        </header>
+        <nav>
+            <button className="main-btn">MOVIES</button>
+            <button className="main-btn">FAVORITES</button>
+          </nav>
+          
         <div className="card-container">
-            {infoCard}
+            { infoCard }
         </div>
+        </>
     )
 }
 
