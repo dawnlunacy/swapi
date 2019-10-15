@@ -52,6 +52,10 @@ class WelcomeForm extends Component {
         }
     }
 
+    // resetInputs= () => {
+    //     this.setState({name: '', quote: '', level: 'select'})
+    // }
+
     render() {
         const errors = this.validate(this.state)
     

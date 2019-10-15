@@ -1,6 +1,8 @@
 import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
+import WelcomeForm from '../WelcomeForm/WelcomeForm'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level}) => {
     console.log("Moose", getMovieCharacters)
@@ -21,6 +23,7 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
         />)
     })
     return(
+        <Router>
         <>
         <header>
             <h1> StarWars</h1>
@@ -30,9 +33,10 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
                 <h3>{ quote }</h3>
                 <h4>{ level }</h4>
             </div>
-            <button className="sign-out-btn">SIGN OUT</button>
+            <Link to='/' ><button className="sign-out-btn">SIGN OUT</button></Link>
             </div>
         </header>
+        {/* <Route exact path='/' component={ WelcomeForm }/> */}
         <nav>
             <button className="main-btn">MOVIES</button>
             <button className="main-btn">FAVORITES</button>
@@ -42,6 +46,7 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
             { infoCard }
         </div>
         </>
+        </Router>
     )
 }
 
