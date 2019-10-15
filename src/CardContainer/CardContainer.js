@@ -5,10 +5,7 @@ import Card from '../Card/Card'
 const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, selectedMovie}) => {
     console.log("Moose", getMovieCharacters)
     console.log("MooseCharcacters", currentCharacters)
-    console.log("MooseData", data)
-
-    console.log('USER INFO', name, quote, level) //undefined for now
-    
+    console.log("MooseData", data)    
 
     const infoCard = data.map(card => {
         console.log("card", card)
