@@ -1,14 +1,69 @@
 .card-container {
     background: black;
     display: grid;
+    grid-row-gap: 25px;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    grid-row-gap: 25px;
     padding: 30px;
 }
 
 header {
-    background-color: pink;
+    background-color: #1C1A1A;
+    color: #FFE300;
+    display: grid;
     width: 100%;
-    color: black;
+        h1 {
+            font-size: 3.5em;
+            margin: 1%;
+        }
+        h2 {
+            border-bottom: 2px solid #FFE300;
+            font-size: 2.5em;
+            margin: 2%;
+        }
+        h3 {
+            border-bottom: 2px solid #FFE300;
+            font-size: 2.0em;
+            font-style: italic;
+            font-weight: normal;
+            margin: 1%;
+        }
+        h4 {
+            font-size: 2.2em;
+            margin: 2%;
+        }
+}
+
+.header-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav {
+    background-color: #111;
+    height: 100px;
+    text-align:center;
+    width: 100%;
+
+}
+
+.main-btn {
+    display: inline-block;
+    margin: 2%;
+    width: 200px;
+
+
+}
+
+.user-info-display {
+    margin: 0% 10% 5% 8%;
+    width: 50%;
+}
+
+.sign-out-btn {
+    border-radius: 40px;
+    display: inline-block;
+    height: 50px;
+    margin: 20% 8% 5% 55%;
+    width: 200px;
 }
