@@ -24,7 +24,8 @@ class App extends Component {
       quote: '',
       level: '',
       error: ''
-
+    }
+  }
   componentDidMount() {
     fetch('https://swapi.co/api/')
       .then(response => response.json())
