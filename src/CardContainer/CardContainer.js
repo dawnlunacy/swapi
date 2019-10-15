@@ -2,7 +2,7 @@ import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
 
-const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level}) => {
+const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, selectedMovie}) => {
     console.log("Moose", getMovieCharacters)
     console.log("MooseCharcacters", currentCharacters)
     console.log("MooseData", data)
@@ -14,6 +14,7 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
         console.log("card", card)
         return(<Card className="movie-card"
         key={card.episode_id}
+        id={card.episode_id}
         data={card}
         findCharacters={getMovieCharacters}
         // name={card.title}
@@ -24,6 +25,7 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
         <>
         <header>
             <h1> StarWars</h1>
+            { isLoading && <h1> Loading... </h1>}
             <div className="header-display">
             <div className="user-info-display"> 
                 <h2>{ name }</h2>

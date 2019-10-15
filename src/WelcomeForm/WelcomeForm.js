@@ -98,5 +98,4 @@ export default WelcomeForm;
 
 WelcomeForm.propTypes = {
     movies: PropTypes.array.isRequired,
-    currentCharacter: PropTypes.array.isRequired
   }

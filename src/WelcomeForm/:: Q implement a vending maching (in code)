@@ -1,0 +1,59 @@
+// Q implement a vending maching (in code)
+
+- What are the available items and their prices
+- How many items are in inventory
+- Buy
+- Restock
+
+vm = VendingMachine.new
+vm.inventory => "Chocolate: $3, Candy $4"
+
+vm.inventory("Chocolate")=>5
+
+vm.buy("Chocolate", 3)
+vm.inventory("Chocolate")=> 2
+
+vm.restock("Chocolate", 10)
+vm.inventory("Chocolate") =>  12
+
+// class of vending machine
+//takes in an array of inventory
+  
+
+
+  [{
+    candy: { inventory: #, pricePerOne: $}}, {}, {}]
+
+  // how many items are in inventory = reduce over array and add up the inventory
+
+  // to buy: // find key === candy // check inventory !== 0 , // return price  
+
+    // method that takes in id for candy
+
+
+  //
+
+
+
+  //// consuelo
+
+  this.snack = [{name:chocolate, price: #, quantity: #}]
+
+  buySnacks(snack)
+
+  this.snacks.find(snack => snack.name === snack)
+
+
+
+**** Be sure to psuedocode -- don't write in actual code, talking through it will show that you know the syntax
+
+**** Negotiation panel **** next week
+*** devOps and IOT engineering *** 
+
+/// she will share the problems // work out in gist and share 
+
+
+
+
+
+
