@@ -1,15 +1,9 @@
 import React from 'react';
 import './CardContainer.scss'
 import Card from '../Card/Card'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
-const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, selectedMovie}) => {
-    console.log("Moose", getMovieCharacters)
-    console.log("MooseCharcacters", currentCharacters)
-    console.log("MooseData", data)
-
-    console.log('USER INFO', name, quote, level) //undefined for now
-    
+const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote, level, isLoading, movie}) => {
 
     const infoCard = data.map(card => {
         console.log("card", card)
@@ -18,15 +12,20 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
         id={card.episode_id}
         data={card}
         findCharacters={getMovieCharacters}
-        // name={card.title}
-        // homeworld={card.homeworld}
         />)
     })
     return(
         <>
         <header>
             <h1> StarWars</h1>
-            { isLoading && <h1> Loading... </h1>}
+            { isLoading && movie && 
+                <div className="loading-characters">
+                    <div className="crawl">
+                        <h1> { movie.title } </h1>
+                        <p> { movie.release_date } </p>
+                        <p> { movie.opening_crawl }</p>
+                    </div>
+                 </div>}
             <div className="header-display">
             <div className="user-info-display"> 
                 <h2>{ name }</h2>
@@ -40,7 +39,9 @@ const CardContainer = ({data, getMovieCharacters, currentCharacters, name, quote
             </div>
         </header>
         <nav>
+            <NavLink to='/movies'>
             <button className="main-btn">MOVIES</button>
+            </NavLink>
             <button className="main-btn">FAVORITES</button>
           </nav>
           

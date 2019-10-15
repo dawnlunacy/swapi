@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import './Card.scss'
 
 const Card = ({ data, findCharacters}) => {
-    console.log("CardProp",data)
     const { title,episode_id, release_date, name, homeWorld, homeWorldPopulation, species, films } = data;
-    // const film = films.map(film => <li> {film }</li>)
-
-   
 
     return(
         <div className="card">
@@ -30,13 +26,10 @@ const Card = ({ data, findCharacters}) => {
             </ul>
             </main>
             <footer>
-            {/* <Link to='/movies/moose' className='btn'>   */}
             { title && <Link to={`/movies/${episode_id}`} className='btn'>
             <button onClick={event => findCharacters(data.characters)}> View Characters </button>
             </Link>}       
-            {/* { title && <button onClick={event => this.handleSubmit(event)}> View Characters </button> }             */}
 
-             {/* </Link> */}
             </footer>
         </div>
         
