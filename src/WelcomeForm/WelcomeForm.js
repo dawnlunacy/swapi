@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './WelcomeForm.scss';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import App from '../App'
 
 
@@ -41,8 +41,8 @@ class WelcomeForm extends Component {
     };
 
     handleChange = event => {
-        // console.log("EVENT-NAME:", event.target.name)
-        // console.log("EVENT-OPTION:", event.target.value)
+        console.log("EVENT-NAME:", event.target.name)
+        console.log("EVENT-OPTION:", event.target.value)
 
         this.setState({[event.target.name]: event.target.value})
         console.log("Statey",this.state)
@@ -57,16 +57,21 @@ class WelcomeForm extends Component {
         // console.log("quoteClick:", quote)
         // console.log("levelClick:", level)
 
-        if ( name === false  && quote === false && level === false ) {
+        if ( name === false  && quote === false && level !== 'select' ) {
             console.log("WIIIINNNNER");
-            return <NavLink to='/movies' className='nav'> Movies </NavLink>
+            this.setState({buttonText:"Submit I Shall"});
+            this.setState({formReady: true})
+            // return <NavLink to='/movies' className='nav'> Movies </NavLink>
 
         }
 
     }
     render() {
         const errors = this.validate(this.state)
-        // console.log("errors", errors)
+        console.log("RENDERING", this.state)
+        if(this.state.formReady) {
+            return <Redirect to='/movies' />
+        }
         return (
             <div className="welcome-form-container">
                 <form>
@@ -100,8 +105,9 @@ class WelcomeForm extends Component {
                         <option value="Master">Master</option>
                     </select>
                     {errors && <span className="error"> { errors.level } </span>}
-                    <Link to='/movies' className='nav'> <button disabled={!this.state.name && !this.state.quote && this.state.level === 'select'}> Submit I Shall </button> </Link>
-                    {/* <button onClick={(event)=> this.handleClick(event, errors)}>Submit I Shall</button> */}
+                    {/* <button> {this.state.buttonText}</button> */}
+                    {/* <Link to='/movies' className='nav'> <button disabled={!this.state.name && !this.state.quote && !this.state.level}> {this.state.buttonText} </button> </Link> */}
+                    <button onClick={(event)=> this.handleClick(event, errors)}>{this.state.buttonText}</button>
                 </form>
             </div>
 
