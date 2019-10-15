@@ -22,8 +22,8 @@ class App extends Component {
       isLoading: true,
       name: '',
       quote: '',
-      level: ''
-
+      level: '',
+      error: ''
     }
   }
   componentDidMount() {
@@ -32,52 +32,60 @@ class App extends Component {
       .then(data => {
         const { films } = data;
         getMovies(films).then(movies => {
-          // console.log("MOVIES", movies.sort((a,b) => a.episode_id - b.episode_id))
           const moviesByEpisode = movies.sort((a,b) => a.episode_id - b.episode_id)
          
-          this.setState({movies: [...moviesByEpisode]})
+          this.setState({movies: [...moviesByEpisode], isLoading: false})
+          
         })
       })
 }
 
 userInfo = (name, quote, level) => {
   this.setState({ name: name, quote: quote, level: level})
-  // console.log("NAME", name)
-  // console.log("QUOTE", quote)
-  // console.log("LEVEL", level)
+}
+
+getMovieCharacters = (characterUrls) => {
+  this.setState({isLoading: true})
+  getCharacters(characterUrls)
+  .then(characters => this.setState({currentCharacters: characters, isLoading: false}))
+}
+
+setCurrentMovie = () => {
 
 }
 
-
-getMovieCharacters = (characterUrls) => {
-  const charactersInfo = getCharacters(characterUrls)
-  // console.log("I HAVE FETCHED CHARACTERS")
-  .then(characters => this.setState({currentCharacters: characters}))
-
-  return charactersInfo
+handleSubmit = (event) => {
+  console.log("INSIDE CARD", event.target)
 }
 
   render() {
     console.log('STATE', this.state)
     console.log('user method', this.userInfo)
+    const { movies, name, quote, level, currentCharacters, isLoading } = this.state 
     return (
       <Router>
         <main className="app">
-          {/* <Switch> */}
-          <Route exact 
-          path='/' 
-          render={() => <WelcomeForm {...this.state} getMovieCharacters={this.getMovieCharacters} userInfo={this.userInfo}/>} />
-          {/* </Switch> */}
-          {/* <Switch> */}
-          <Route exact 
-          path='/movies' 
-          render={() => <CardContainer data={this.state.movies} getMovieCharacters={this.getMovieCharacters} name={this.state.name} quote={this.state.quote} level={this.state.level}/> } />
-          {/* </Switch> */}
-          {/* <Switch> */}
-          <Route exact 
-          path='/movies/moose' 
-          render={() => <CardContainer data={this.state.currentCharacters}  getMovieCharacters={this.getMovieCharacters} name={this.state.name} quote={this.state.quote} level={this.state.level}/>} />
-           {/* </Switch> */}
+          <Route exact path='/' render={() => 
+          <WelcomeForm {...this.state} userInfo={this.userInfo}/>} 
+          />
+          <Route exact path='/movies' render={() => 
+          <CardContainer 
+            data={ movies } 
+            getMovieCharacters={this.getMovieCharacters} 
+            name={ name } 
+            quote={ quote } 
+            level={ level } 
+            isLoading= { isLoading }/> }/>
+          <Route exact path='/movies/:id' render={({ match }) => {
+            const selectedMovie = movies.find(movie => movie.episode_id === parseInt(match.params.id))
+           return (
+            <CardContainer 
+            data={ currentCharacters}  
+            movie={ selectedMovie } 
+            name={ name } 
+            quote={ quote } 
+           level={ level }/> )}
+          }/>
         </main>
       </Router>
     )
