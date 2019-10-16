@@ -1,3 +1,9 @@
+
+
+
+
+
+
 export const getCharacters = characterUrls => {
     const firstTenCharacters = characterUrls.slice(0,10)
       const charactersInfo = firstTenCharacters.map(url => {
@@ -48,12 +54,12 @@ export const getSpecies = speciesUrl => {
 }
 
 export const getMovies = filmsUrl => {
-    return fetch(filmsUrl)
+    return fetch('https://swapi.co/api/films')
         .then(response => response.json())
         .then(films => films.results.map(film => {
             const { title, episode_id, opening_crawl, release_date, characters } = film;
             return ({ title, episode_id, opening_crawl, release_date, characters })
-        }))
+        })).then(films => films.sort((a,b) => a.episode_id - b.episode_id))
 }
 
 export const getFilms = filmsUrls => {

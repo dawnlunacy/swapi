@@ -16,9 +16,8 @@ describe('Card', () => {
     it('should match snapshot with all the correct data passing through', () => {
         expect(wrapper).toMatchSnapshot()
     });
-    it.skip('should run findCharacters when View Characters is clicked', () => {
+    it('should run findCharacters when View Characters is clicked', () => {
         wrapper.find('button').simulate('click')
-
         expect(mockFindCharacters).toHaveBeenCalledWith(2);
-    }) // this test will complete the testing for card coverage
+    });
 })

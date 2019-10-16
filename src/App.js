@@ -8,7 +8,7 @@ import { getMovies, getCharacters } from './apiCalls/apiCalls'
 import CardContainer from './CardContainer/CardContainer'
 
 import WelcomeForm from './WelcomeForm/WelcomeForm'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 
@@ -27,15 +27,8 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    fetch('https://swapi.co/api/')
-      .then(response => response.json())
-      .then(data => {
-        const { films } = data;
-        getMovies(films).then(movies => {
-          const moviesByEpisode = movies.sort((a,b) => a.episode_id - b.episode_id)
-          this.setState({movies: [...moviesByEpisode], isLoading: false})
-          
-        })
+        getMovies().then(movies => {
+          this.setState({movies, isLoading: false})
       })
 }
 
@@ -54,12 +47,9 @@ getMovieCharacters = (characterUrls) => {
     return (
       <Router>
         <main className="app">
-          <Switch>
           <Route exact path='/' render={() => 
           <WelcomeForm {...this.state} userInfo={this.userInfo}/>} 
           />
-          </Switch>
-          <Switch>
           <Route exact path='/movies' render={() => 
           <CardContainer 
             data={ movies } 
@@ -68,8 +58,6 @@ getMovieCharacters = (characterUrls) => {
             quote={ quote } 
             level={ level } 
             isLoading= { isLoading }/> }/>
-          </Switch>
-          <Switch>
           <Route exact path='/movies/:id' render={({ match }) => {
             const selectedMovie = movies.find(movie => movie.episode_id === parseInt(match.params.id))
            return (
@@ -81,8 +69,6 @@ getMovieCharacters = (characterUrls) => {
            level={ level }
            isLoading= { isLoading }/> )}
           }/>
-          
-          </Switch>
         </main>
       </Router>
     )

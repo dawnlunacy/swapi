@@ -33,7 +33,6 @@ class WelcomeForm extends Component {
             !level || level === 'select'
               ? "* Rank is required *"
               : false
-        //  formReady:
             
         };
     };
@@ -41,6 +40,7 @@ class WelcomeForm extends Component {
     displayUserInfo = () => {
         const { userInfo } = this.props
         userInfo(this.state.name, this.state.quote, this.state.level)
+
     }
     
     handleChange = event => {
@@ -80,7 +80,7 @@ class WelcomeForm extends Component {
                     {errors && <span className="error"> { errors.quote } </span>}
 
                     <label>Select Rank:</label>
-                    <select onChange={this.handleChange.bind(this)} name="level" value={this.state.level}>
+                    <select onChange={this.handleChange} name="level" value={this.state.level}>
                         <option  value="select">Select a Rank</option>
                         <option  value="Padawan">Padawan</option>
                         <option  value="Knight">Knight</option>

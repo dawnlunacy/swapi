@@ -1,25 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardContainer should match the snapshot with all the correct data passing through 1`] = `
-<div
-  className="card-container"
->
-  <Card
-    className="movie-card"
-    data={
-      Object {
-        "characters": Array [
-          undefined,
-          undefined,
-        ],
-        "episode_id": 2,
-        "opening_crawl": "There is unrest in the Galactic...",
-        "release_date": "2002-05-16",
-        "title": "Attack of the Clones",
+<Fragment>
+  <header>
+    <h1>
+       StarWars
+    </h1>
+    <div
+      className="header-display"
+    >
+      <div
+        className="user-info-display"
+      >
+        <h2>
+          Sausage
+        </h2>
+        <h3>
+          I am Spicy
+        </h3>
+        <h4>
+          Master
+        </h4>
+      </div>
+      <Link
+        to="/"
+      >
+        <button
+          className="sign-out-btn"
+        >
+          SIGN OUT
+        </button>
+      </Link>
+    </div>
+  </header>
+  <nav>
+    <NavLink
+      to="/movies"
+    >
+      <button
+        className="main-btn"
+      >
+        MOVIES
+      </button>
+    </NavLink>
+    <button
+      className="main-btn"
+    >
+      FAVORITES
+    </button>
+  </nav>
+  <div
+    className="card-container"
+  >
+    <Card
+      className="movie-card"
+      data={
+        Object {
+          "characters": Array [
+            undefined,
+            undefined,
+          ],
+          "episode_id": 2,
+          "opening_crawl": "There is unrest in the Galactic...",
+          "release_date": "2002-05-16",
+          "title": "Attack of the Clones",
+        }
       }
-    }
-    findCharacters={[MockFunction]}
-    key="2"
-  />
-</div>
+      findCharacters={[MockFunction]}
+      id={2}
+      key="2"
+    />
+  </div>
+</Fragment>
 `;

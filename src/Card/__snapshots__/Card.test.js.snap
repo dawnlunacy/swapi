@@ -6,37 +6,12 @@ exports[`Card should match snapshot with all the correct data passing through 1`
 >
   <header
     className="card-header"
-  >
-    <h2>
-       
-       
-    </h2>
-    <h2>
-       
-       
-    </h2>
-  </header>
+  />
   <main
     className="card-main"
   >
-    <h3>
-       Episode 
-    </h3>
-    <h3>
-      Date
-    </h3>
+    <ul />
   </main>
-  <footer>
-    <Link
-      className="btn"
-      to="/movies/moose"
-    >
-      <button
-        onClick={[Function]}
-      >
-         View Characters 
-      </button>
-    </Link>
-  </footer>
+  <footer />
 </div>
 `;
