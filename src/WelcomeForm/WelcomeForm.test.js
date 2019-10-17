@@ -55,7 +55,6 @@ describe('WelcomeForm', () => {
         expect(wrapper.state('level')).toEqual(expected);
     });
     it('should run displayUserInfo when the button is clicked', () => {
-        // const mockDisplayUserInfo = jest.fn();
         wrapper.instance().displayUserInfo = jest.fn();
         wrapper.find('button').simulate('click')
 

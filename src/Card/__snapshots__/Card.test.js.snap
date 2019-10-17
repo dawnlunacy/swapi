@@ -9,27 +9,34 @@ exports[`Card should match snapshot with all the correct data passing through 1`
   >
     <h2>
        
-       
-    </h2>
-    <h2>
-       
+      Attack of the Clones
        
     </h2>
   </header>
   <main
     className="card-main"
   >
-    <h3>
-       Episode 
-    </h3>
-    <h3>
-      Date
-    </h3>
+    <ul>
+      <li>
+         
+        <h3>
+           Episode 
+          2
+        </h3>
+      </li>
+      <li>
+        <h3>
+           
+          May 16 2002
+           
+        </h3>
+      </li>
+    </ul>
   </main>
   <footer>
     <Link
       className="btn"
-      to="/movies/moose"
+      to="/movies/2"
     >
       <button
         onClick={[Function]}

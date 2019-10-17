@@ -87,7 +87,8 @@ exports[`WelcomeForm should match the snapshot with all the correct data passed 
         disabled={true}
         onClick={[Function]}
       >
-         Submit I Shall 
+         
+        Submit I Shall Not
       </button>
        
     </Link>
