@@ -17,7 +17,6 @@ describe('Card', () => {
         expect(wrapper).toMatchSnapshot()
     });
     it('should run findCharacters when View Characters is clicked', () => {
-        console.log(wrapper)
         wrapper.find('button').simulate('click')
         expect(mockFindCharacters).toHaveBeenCalledWith(["URL", "URL"]);
     });

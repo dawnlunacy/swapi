@@ -2,10 +2,6 @@ import { getCharacters, getHomeworld, getSpecies, getMovies, getFilms } from '..
 import mockMovies from '../mockMovies'
 import mockSpecies from '../mockSpecies'
 import mockCharactersUrls from '../mockCharacters';
-import mockHomeworld from '../mockHomeworld'
-import mockPeople from '../mockPeople'
-// import mockFilms from '../mockFilms';
-// console.log("MOCK", mockFilms)
 
 
 describe('apiCalls', () => {
@@ -20,19 +16,14 @@ describe('apiCalls', () => {
                 homeworld: "MOON"
             }
         })
-        const mockReturnedAnswer = Promise.resolve({
-            name: "Susan",
-            films: ["URL", "URL"],
-            species: "MOOSE",
-            homeworld: "MOON"
-        })
-        // const mockResponse1 = getCharacters
+      
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
               ok: true,
               json: () => Promise.resolve(mockResponse)
             })
           })
+
         it('should call fetch with the correct url', () => {
             getCharacters(mockCharactersUrls.mockCharactersUrls)
             expect(window.fetch).toHaveBeenCalled()

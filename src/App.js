@@ -40,6 +40,7 @@ getMovieCharacters = (characterUrls) => { //DONE
   this.setState({isLoading: true})
   getCharacters(characterUrls)
   .then(characters => this.setState({currentCharacters: characters, isLoading: false}))
+  .then(error => this.setState({error}))
 }
 
   render() {
