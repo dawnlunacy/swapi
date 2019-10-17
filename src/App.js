@@ -36,7 +36,7 @@ userInfo = (name, quote, level) => {
   this.setState({ name: name, quote: quote, level: level})
 }
 
-getMovieCharacters = (characterUrls) => {
+getMovieCharacters = (characterUrls) => { //DONE
   this.setState({isLoading: true})
   getCharacters(characterUrls)
   .then(characters => this.setState({currentCharacters: characters, isLoading: false}))
