@@ -1,9 +1,4 @@
 
-
-
-
-
-
 export const getCharacters = characterUrls => {
     const firstTenCharacters = characterUrls.slice(0,10)
       const charactersInfo = firstTenCharacters.map(url => {

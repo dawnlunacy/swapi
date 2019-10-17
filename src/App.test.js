@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
 import { getCharacters, getMovies } from './apiCalls/apiCalls';
@@ -45,7 +44,7 @@ describe('App', () => {
   })
 
   it('should update state when getMovieCharacters is called', async () => {
-    const wrapper= shallow(<App/>)
+     wrapper= shallow(<App/>)
     const mockUrls = ["https://swapi.co/api/people/1/",
     "https://swapi.co/api/people/2/"];
 
