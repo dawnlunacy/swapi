@@ -48,7 +48,7 @@ export const getSpecies = speciesUrl => {
             })
 }
 
-export const getMovies = filmsUrl => {
+export const getMovies = filmsUrl => { //DONE
     return fetch('https://swapi.co/api/films')
         .then(response => response.json())
         .then(films => films.results.map(film => {
