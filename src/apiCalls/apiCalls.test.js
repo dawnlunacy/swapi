@@ -1,29 +1,36 @@
 import { getCharacters, getHomeworld, getSpecies, getMovies, getFilms } from '../apiCalls/apiCalls';
 import mockMovies from '../mockMovies'
 import mockSpecies from '../mockSpecies'
-import mockCharacters from '../mockCharacters'
-import mockHomeworld from '../mockHomeworld'
-import mockPeople from '../mockPeople'
+import mockCharactersUrls from '../mockCharacters';
+
 
 describe('apiCalls', () => {
     
     
     describe('getCharacters', () => {
-        const mockResponse1 = getCharacters
+        const mockResponse = Promise.resolve({
+            person: {
+                name: "Susan",
+                films: ["URL", "URL"],
+                species: "MOOSE",
+                homeworld: "MOON"
+            }
+        })
+      
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
               ok: true,
-              json: () => Promise.resolve(mockResponse1)
+              json: () => Promise.resolve(mockResponse)
             })
           })
-        it.skip('should call fetch with the correct url', () => {
-    
-            getCharacters()
-            expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people')
+
+        it('should call fetch with the correct url', () => {
+            getCharacters(mockCharactersUrls.mockCharactersUrls)
+            expect(window.fetch).toHaveBeenCalled()
         });
     
-        it.skip('should return the first ten characters', () => {
-            expect(getCharacters()).resolves.toEqual(mockCharacters)
+        it('should return the an array of the first ten characters', () => {
+            expect(getCharacters(mockCharactersUrls.mockCharactersUrls)).resolves.toEqual(mockCharactersUrls.mockCharacters)
         })
     })
 
@@ -46,52 +53,75 @@ describe('apiCalls', () => {
     })
 
     describe('getSpecies', () => {
-        const mockResponse = getSpecies
+        const mockResponse = Promise.resolve({
+            species: {
+                name: "Susan",
+                species: "MOOSE"
+            }
+        })
+        const mockReturnedAnswer = Promise.resolve({
+                name: "Susan",
+                species: "MOOSE"
+        })
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
                 ok: true,
                 json: () => Promise.resolve(mockResponse)
             })
         })
-        it('should call fetch with the correct url', () => {
-            getSpecies()
-            expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/species')
+
+        it('should return the correct object', () => {
+            expect(getSpecies()).toEqual(mockReturnedAnswer)
         })
+
         it('should return an array of species', () => { //DONE
             expect(getSpecies()).resolves.toEqual(mockSpecies)
         })
     })
     describe('getHomeworld', () => {
-        const mockResponse = getHomeworld
+        const mockResponse = Promise.resolve({
+            homeworlds: {
+                name: "Winner",
+                population: 2
+            }
+        })
+        const mockReturnedAnswer = Promise.resolve({
+                name: "Winner",
+                population: 2
+        })
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
                 ok: true,
                 json: () => Promise.resolve(mockResponse)
             })
         })
-        it.skip('should call fetch with the correct URL', () => {
-            getHomeworld();
-            expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/planets')
+        it('should call fetch with the correct URL', () => {
+            getHomeworld('https://swapi.co/api/planets/1/');
+            expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/planets/1/')
         })
-        it.skip('should return an array of homeworlds', () => {
-            expect(getHomeworld()).resolves.toEqual(mockHomeworld)
+        it('should return an object with name and population', () => {
+            expect(getHomeworld('https://swapi.co/api/planets/1/')).resolves.toEqual(mockReturnedAnswer)
         })
 
     })
     describe('getFilms', () => {
-        const mockResponse = getFilms
+        const mockResponse = Promise.resolve({
+            film: {
+                title: "Winning at Testing"
+            }
+        })
+        const mockReturnedAnswer = Promise.resolve({
+            title: "Winning at Testing"
+        })
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
                 ok: true,
                 json: () => Promise.resolve(mockResponse)
             })
         })
-        it.skip('should call fetch with the correct URL', () => {
-            getFilms();
-            expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/films')
-        })
-        it.skip('should return an array of movies', () => { 
-            expect(getFilms()).resolves.toEqual(mockMovies)
+
+        it('should return an array of movies', () => { 
+            expect(getFilms([1,2])).resolves.toEqual(mockReturnedAnswer)
         })
 
     })
