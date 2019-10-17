@@ -10,5 +10,67 @@ export default  {
             "https://swapi.co/api/people/9/",
             "https://swapi.co/api/people/10/",
             "https://swapi.co/api/people/12/",
-            "https://swapi.co/api/people/13/"]
+            "https://swapi.co/api/people/13/"],
+    mockCharacters : [
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        },
+        {
+            name: "Susan",
+            films: ["URL", "URL"],
+            species: "MOOSE",
+            homeworld: "MOON"
+        }
+    ]
 }

@@ -38,8 +38,8 @@ describe('apiCalls', () => {
             expect(window.fetch).toHaveBeenCalled()
         });
     
-        it.skip('should return the first ten characters', () => {
-            expect(getCharacters()).resolves.toEqual(mockCharacters)
+        it('should return the an array of the first ten characters', () => {
+            expect(getCharacters(mockCharactersUrls.mockCharactersUrls)).resolves.toEqual(mockCharactersUrls.mockCharacters)
         })
     })
 
