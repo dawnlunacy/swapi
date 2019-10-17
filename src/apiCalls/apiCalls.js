@@ -30,7 +30,7 @@ export const getCharacters = characterUrls => {
     return Promise.all(charactersInfo)
 }
 
-const getHomeworld = homeworldUrl => {
+export const getHomeworld = homeworldUrl => {
     return fetch(homeworldUrl)
         .then(response => response.json())
         .then(homeworlds => {
@@ -59,7 +59,6 @@ export const getMovies = filmsUrl => { //DONE
 
 export const getFilms = filmsUrls => {
     const filmInfo = filmsUrls.map(url => {
-
         return fetch(url)
         .then(response => response.json())
         .then(film => {

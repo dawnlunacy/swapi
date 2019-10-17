@@ -1,4 +1,5 @@
-export const mockCharacters = ["https://swapi.co/api/people/1/",
+export default {
+    mockCharactersUrls: ["https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
             "https://swapi.co/api/people/3/",
             "https://swapi.co/api/people/4/",
@@ -10,3 +11,4 @@ export const mockCharacters = ["https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/10/",
             "https://swapi.co/api/people/12/",
             "https://swapi.co/api/people/13/"]
+}
