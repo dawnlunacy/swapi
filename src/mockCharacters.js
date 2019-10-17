@@ -1,4 +1,4 @@
-export default {
+export default  {
     mockCharactersUrls: ["https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
             "https://swapi.co/api/people/3/",

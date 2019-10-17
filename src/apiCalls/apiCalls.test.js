@@ -34,9 +34,8 @@ describe('apiCalls', () => {
             })
           })
         it('should call fetch with the correct url', () => {
-            console.log("MAYBAH",mockCharactersUrls)
-            getCharacters(mockCharactersUrls)
-            expect(window.fetch).toHaveBeenCalled(mockCharactersUrls)
+            getCharacters(mockCharactersUrls.mockCharactersUrls)
+            expect(window.fetch).toHaveBeenCalled()
         });
     
         it.skip('should return the first ten characters', () => {
